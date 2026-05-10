@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ANTRP Consulting – DevSecOps für Startups & KMU</title>
+  <meta name="description" content="Professionelles DevSecOps-Consulting für Startups und kleine Unternehmen. Kubernetes, CI/CD, Security, HashiCorp Vault, Cloud Native – pragmatisch und auf Augenhöhe.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ─── NAV ──────────────────────────────────────────────────── -->
+<nav>
+  <a href="#hero" class="nav-logo">ANTRP<span>.</span>DevSecOps</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#services">Leistungen</a></li>
+    <li><a href="#approach">Vorgehen</a></li>
+    <li><a href="#target">Für wen</a></li>
+    <li><a href="#tech">Technologien</a></li>
+    <li><a href="#contact" class="nav-cta">Kontakt</a></li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="Menü">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ─── HERO ──────────────────────────────────────────────────── -->
+<section id="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <div class="hero-badge">DevSecOps Consulting</div>
+    <h1>
+      Sichere Infrastruktur.<br>
+      <em>Ohne eigenes DevOps-Team.</em>
+    </h1>
+    <p class="hero-sub">
+      Ich bringe Enterprise-Level DevSecOps in dein Startup oder KMU –
+      pragmatisch, hands-on und so, dass dein Team am Ende selbst damit umgehen kann.
+    </p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Kostenloses Erstgespräch</a>
+      <a href="#services" class="btn-secondary">Leistungen ansehen</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">K8s</div>
+        <div class="stat-label">Kubernetes &amp; Cloud Native</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">0–1</div>
+        <div class="stat-label">Von Null zur Produktion</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">Sec</div>
+        <div class="stat-label">Security by Design</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SERVICES ─────────────────────────────────────────────── -->
+<section id="services">
+  <div class="section-inner">
+    <span class="section-tag">Leistungen</span>
+    <h2>Was ich für dich tue</h2>
+    <p class="section-desc">
+      Von der ersten Kubernetes-Installation bis zur vollständig abgesicherten CI/CD-Pipeline –
+      maßgeschneidert für die Realität kleiner Teams.
+    </p>
+    <div class="services-grid">
+
+      <div class="service-card">
+        <span class="service-icon">☸️</span>
+        <h3>Kubernetes &amp; Cloud Native</h3>
+        <p>
+          Cluster-Aufbau, Hardening, Workload-Management und betriebssicherer Alltag –
+          on-prem oder in der Cloud. Inklusive CNAPP-Integration für Laufzeit-Security.
+        </p>
+        <div class="service-tags">
+          <span class="tag">Kubernetes</span>
+          <span class="tag">Helm</span>
+          <span class="tag">CNAPP</span>
+          <span class="tag">Network Policies</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <span class="service-icon">🔐</span>
+        <h3>Secrets &amp; Zero-Trust Security</h3>
+        <p>
+          Sichere Secret-Verwaltung mit HashiCorp Vault, SSH Certificate Authority für
+          zertifikatsbasiertes Login – kein statisches Passwort bleibt übrig.
+        </p>
+        <div class="service-tags">
+          <span class="tag">HashiCorp Vault</span>
+          <span class="tag">SSH CA</span>
+          <span class="tag">PKI</span>
+          <span class="tag">Zero Trust</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <span class="service-icon">⚙️</span>
+        <h3>CI/CD &amp; Automatisierung</h3>
+        <p>
+          Pipelines, die wirklich liefern: sichere Build-Chains, automatisierte Tests,
+          Container-Scanning und Deployments – in GitHub Actions oder GitLab CI/CD.
+        </p>
+        <div class="service-tags">
+          <span class="tag">GitHub Actions</span>
+          <span class="tag">GitLab CI/CD</span>
+          <span class="tag">SAST/DAST</span>
+          <span class="tag">Container Scanning</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <span class="service-icon">🤖</span>
+        <h3>Infrastructure as Code</h3>
+        <p>
+          Reproduzierbare, versionierbare Infrastruktur mit Ansible –
+          Server-Provisioning, Konfigurationsmanagement und Compliance-Checks automatisiert.
+        </p>
+        <div class="service-tags">
+          <span class="tag">Ansible</span>
+          <span class="tag">Linux</span>
+          <span class="tag">IaC</span>
+          <span class="tag">Hardening</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <span class="service-icon">📊</span>
+        <h3>Big Data &amp; Datenplattformen</h3>
+        <p>
+          Aufbau und Betrieb von Datenplattformen im Kubernetes-Umfeld –
+          skalierbar, observierbar und mit klaren Datenpipelines.
+        </p>
+        <div class="service-tags">
+          <span class="tag">Big Data</span>
+          <span class="tag">Spark</span>
+          <span class="tag">Kafka</span>
+          <span class="tag">Monitoring</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <span class="service-icon">🐍</span>
+        <h3>Python-Automatisierung &amp; Tooling</h3>
+        <p>
+          Custom-Scripts, Operator-Logik, Glue-Code und CLI-Tools –
+          alles was deinen Betrieb schlanker macht und manuelle Arbeit eliminiert.
+        </p>
+        <div class="service-tags">
+          <span class="tag">Python</span>
+          <span class="tag">Automation</span>
+          <span class="tag">APIs</span>
+          <span class="tag">Operator SDK</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <span class="service-icon">🛡️</span>
+        <h3>DevSecOps Enablement</h3>
+        <p>
+          Ich mache nur für dich – ich mache es <em>mit</em> dir. Dein Team lernt
+          dabei und kann die Systeme danach selbst betreiben. Kein Vendor Lock-in.
+        </p>
+        <div class="service-tags">
+          <span class="tag">Workshops</span>
+          <span class="tag">Knowledge Transfer</span>
+          <span class="tag">Dokumentation</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <span class="service-icon">🔍</span>
+        <h3>Security Audit &amp; Assessment</h3>
+        <p>
+          Wo stehst du heute? Cluster-Audit, Pipeline-Review, Secret-Scan –
+          du bekommst einen klaren Bericht mit priorisierten Maßnahmen.
+        </p>
+        <div class="service-tags">
+          <span class="tag">Audit</span>
+          <span class="tag">CIS Benchmarks</span>
+          <span class="tag">Threat Modeling</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── APPROACH ──────────────────────────────────────────────── -->
+<section id="approach">
+  <div class="section-inner">
+    <span class="section-tag">Vorgehen</span>
+    <h2>Wie ich arbeite</h2>
+    <p class="section-desc">
+      Kein Overhead, kein Bullshit. Pragmatisch, transparent und immer mit dem Ziel,
+      dass dein Team am Ende eigenständig ist.
+    </p>
+    <div class="approach-steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <h3>Verstehen</h3>
+        <p>Wo steht ihr heute, was wollt ihr morgen erreichen? Kostenloses Erstgespräch, keine PowerPoint-Show.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <h3>Analysieren</h3>
+        <p>Ich schaue mir eure Infrastruktur, Pipelines und Security-Posture an und identifiziere die echten Engpässe.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <h3>Umsetzen</h3>
+        <p>Hands-on Implementierung – in eurem Repo, mit eurem Team. Klar priorisiert nach Impact.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <h3>Übergeben</h3>
+        <p>Dokumentation, Wissenstransfer, Schulung. Ihr seid danach nicht abhängig von mir.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── TARGET ────────────────────────────────────────────────── -->
+<section id="target">
+  <div class="section-inner">
+    <span class="section-tag">Für wen</span>
+    <h2>Genau das Richtige, wenn…</h2>
+    <div class="target-grid">
+      <ul class="target-list">
+        <li>
+          <span class="target-icon">🚀</span>
+          <div>
+            <h4>Du ein Startup bist</h4>
+            <p>…das schnell skalieren will, aber kein Budget für ein ganzes DevOps-Team hat.</p>
+          </div>
+        </li>
+        <li>
+          <span class="target-icon">🏢</span>
+          <div>
+            <h4>Du ein KMU bist</h4>
+            <p>…das Kubernetes einsetzen will oder schon einsetzt, aber das Betriebswissen fehlt.</p>
+          </div>
+        </li>
+        <li>
+          <span class="target-icon">🔒</span>
+          <div>
+            <h4>Security drängt</h4>
+            <p>…ein Audit steht an, Secrets liegen noch in Git, oder du weißt nicht wo du anfangen sollst.</p>
+          </div>
+        </li>
+        <li>
+          <span class="target-icon">⚡</span>
+          <div>
+            <h4>Deployment schmerzt</h4>
+            <p>…Releases sind manuell, fehleranfällig und stressig. Das muss nicht so sein.</p>
+          </div>
+        </li>
+      </ul>
+      <div class="target-callout">
+        <h3>Enablement statt Abhängigkeit</h3>
+        <p>
+          Viele Consultants bauen Systeme, die nur sie selbst verstehen.
+          Ich baue Systeme, die dein Team selbst betreiben kann –
+          und erkläre dabei jeden Schritt. Das ist mein Versprechen.
+        </p>
+        <ul class="check-list">
+          <li>Keine unnötigen Komplexität</li>
+          <li>Open Source first – kein Vendor Lock-in</li>
+          <li>Dokumentation gehört zum Lieferumfang</li>
+          <li>Dein Team versteht was läuft</li>
+          <li>Pragmatische Lösungen statt akademischer Theorie</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── TECH ──────────────────────────────────────────────────── -->
+<section id="tech">
+  <div class="section-inner">
+    <span class="section-tag">Technologien</span>
+    <h2>Womit ich täglich arbeite</h2>
+    <p class="section-desc">Kein Hype-Stack – bewährte Tools, die in Produktion funktionieren.</p>
+    <div class="tech-logos">
+      <span class="tech-pill">Kubernetes</span>
+      <span class="tech-pill">HashiCorp Vault</span>
+      <span class="tech-pill">GitHub Actions</span>
+      <span class="tech-pill">GitLab CI/CD</span>
+      <span class="tech-pill">Ansible</span>
+      <span class="tech-pill">Python</span>
+      <span class="tech-pill">Linux</span>
+      <span class="tech-pill">SSH CA</span>
+      <span class="tech-pill">CNAPP</span>
+      <span class="tech-pill">Helm</span>
+      <span class="tech-pill">Terraform</span>
+      <span class="tech-pill">Prometheus</span>
+      <span class="tech-pill">Grafana</span>
+      <span class="tech-pill">Docker</span>
+      <span class="tech-pill">ArgoCD</span>
+      <span class="tech-pill">OPA / Kyverno</span>
+      <span class="tech-pill">Trivy</span>
+      <span class="tech-pill">Falco</span>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CONTACT ───────────────────────────────────────────────── -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <span class="section-tag">Kontakt</span>
+        <h2>Lass uns reden.</h2>
+        <p>
+          Erstes Gespräch kostenlos. Kein Verkaufsdruck –
+          ich höre zu, was du brauchst, und sage dir ehrlich ob und wie ich helfen kann.
+        </p>
+        <div class="contact-details">
+          <div class="contact-item">
+            <div class="contact-item-icon">✉</div>
+            <span>hallo@antrp.dev</span>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">📍</div>
+            <span>Remote · DACH-Region</span>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">🕐</div>
+            <span>Antwort innerhalb von 24h</span>
+          </div>
+        </div>
+      </div>
+
+      <form id="contactForm">
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Max Mustermann" required>
+          </div>
+          <div class="form-group">
+            <label for="company">Unternehmen</label>
+            <input type="text" id="company" name="company" placeholder="Acme GmbH">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">E-Mail</label>
+          <input type="email" id="email" name="email" placeholder="max@acme.de" required>
+        </div>
+        <div class="form-group">
+          <label for="topic">Thema</label>
+          <select id="topic" name="topic">
+            <option value="">Bitte wählen…</option>
+            <option>Kubernetes Setup &amp; Betrieb</option>
+            <option>CI/CD Pipeline</option>
+            <option>Secrets &amp; Security</option>
+            <option>Big Data Plattform</option>
+            <option>Security Audit</option>
+            <option>DevSecOps Enablement</option>
+            <option>Sonstiges</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Nachricht</label>
+          <textarea id="message" name="message" placeholder="Kurze Beschreibung eurer Situation und was ihr braucht…" required></textarea>
+        </div>
+        <button type="submit" class="btn-submit">Nachricht senden →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ────────────────────────────────────────────────── -->
+<footer>
+  <p>&copy; 2026 ANTRP Consulting · <a href="mailto:hallo@antrp.dev">hallo@antrp.dev</a> · <a href="#">Impressum</a> · <a href="#">Datenschutz</a></p>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
