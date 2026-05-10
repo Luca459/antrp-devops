@@ -47,12 +47,29 @@ requestAnimationFrame(() => {
   document.querySelectorAll('[data-animate]').forEach(el => animObserver.observe(el));
 });
 
-// ── Contact form ──────────────────────────────────────────────
-document.getElementById('contactForm').addEventListener('submit', function (e) {
+// ── Contact form → real backend POST ─────────────────────────
+document.getElementById('contactForm').addEventListener('submit', async function (e) {
   e.preventDefault();
-  const btn = this.querySelector('.btn-submit');
+  const btn  = this.querySelector('.btn-submit');
   const orig = btn.textContent;
-  btn.textContent = 'Nachricht gesendet ✓';
-  btn.style.background = 'linear-gradient(135deg,#10b981,#06b6d4)';
-  setTimeout(() => { btn.textContent = orig; btn.style.background = ''; this.reset(); }, 3000);
+
+  btn.textContent = 'Wird gesendet…';
+  btn.disabled = true;
+
+  try {
+    const res = await fetch('/api/contact', {
+      method: 'POST',
+      body: new FormData(this),
+    });
+    if (!res.ok) throw new Error(await res.text());
+
+    btn.textContent = 'Nachricht gesendet ✓';
+    btn.style.background = 'linear-gradient(135deg,#10b981,#06b6d4)';
+    this.reset();
+    setTimeout(() => { btn.textContent = orig; btn.style.background = ''; btn.disabled = false; }, 3500);
+  } catch {
+    btn.textContent = 'Fehler – bitte direkt per E-Mail';
+    btn.style.background = 'linear-gradient(135deg,#ef4444,#dc2626)';
+    setTimeout(() => { btn.textContent = orig; btn.style.background = ''; btn.disabled = false; }, 4000);
+  }
 });
