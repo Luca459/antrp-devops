@@ -601,6 +601,89 @@ footer {
 
 footer a { color: var(--accent); text-decoration: none; }
 
+/* ─── BACKGROUND TECH LAYER ─────────────────────────────────── */
+.bg-tech-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.bg-k8s {
+  position: absolute;
+  top: 8%;
+  right: -80px;
+  width: 420px;
+  height: 420px;
+  color: var(--accent);
+  opacity: 0.045;
+  animation: k8s-spin 60s linear infinite;
+}
+
+.bg-vault {
+  position: absolute;
+  bottom: 12%;
+  left: -60px;
+  width: 340px;
+  height: 340px;
+  color: var(--accent);
+  opacity: 0.04;
+  animation: vault-pulse 8s ease-in-out infinite;
+}
+
+.bg-pipeline {
+  position: absolute;
+  bottom: 28%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(680px, 90vw);
+  color: var(--accent);
+  opacity: 0.05;
+}
+
+.pipeline-flow {
+  stroke-dasharray: 6 5;
+  animation: pipeline-dash 1.4s linear infinite;
+}
+
+@keyframes k8s-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes vault-pulse {
+  0%, 100% { opacity: 0.04; transform: scale(1); }
+  50%       { opacity: 0.065; transform: scale(1.03); }
+}
+
+@keyframes pipeline-dash {
+  to { stroke-dashoffset: -22; }
+}
+
+/* keep content above the bg layer */
+nav, section, footer { position: relative; z-index: 1; }
+
+/* ─── SCROLL ANIMATIONS ──────────────────────────────────────── */
+[data-animate] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+[data-animate].visible {
+  opacity: 1;
+  transform: none;
+}
+
+[data-animate][data-delay="1"] { transition-delay: 0.08s; }
+[data-animate][data-delay="2"] { transition-delay: 0.16s; }
+[data-animate][data-delay="3"] { transition-delay: 0.24s; }
+[data-animate][data-delay="4"] { transition-delay: 0.32s; }
+[data-animate][data-delay="5"] { transition-delay: 0.40s; }
+[data-animate][data-delay="6"] { transition-delay: 0.48s; }
+[data-animate][data-delay="7"] { transition-delay: 0.56s; }
+
 /* ─── RESPONSIVE ────────────────────────────────────────────── */
 @media (max-width: 768px) {
   .nav-links { display: none; }
