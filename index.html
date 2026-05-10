@@ -3,352 +3,273 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ANTRP Consulting – DevSecOps für Startups & KMU</title>
-  <meta name="description" content="Professionelles DevSecOps-Consulting für Startups und KMU. Kubernetes, CI/CD, HashiCorp Vault, Security – pragmatisch und hands-on.">
+  <title>dollack.dev — Sichere Infrastruktur ohne eigenes DevOps-Team</title>
+  <meta name="description" content="DevSecOps Consulting für Startups und KMU. Kubernetes, CI/CD, HashiCorp Vault, Security — pragmatisch und hands-on.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<nav>
-  <a href="#hero" class="nav-logo">ANTRP<span>.</span>DevSecOps</a>
-  <ul class="nav-links" id="navLinks">
-    <li><a href="#services">Leistungen</a></li>
-    <li><a href="#approach">Vorgehen</a></li>
-    <li><a href="#target">Für wen</a></li>
-    <li><a href="#tech">Technologien</a></li>
-    <li><a href="#contact" class="nav-cta">Kontakt</a></li>
-  </ul>
-  <button class="nav-hamburger" id="hamburger" aria-label="Menü">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
+<div class="bg-stage">
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+  <div class="blob b3"></div>
+</div>
+<div class="bg-grid"></div>
 
-<!-- ─── HERO ──────────────────────────────────────────────────── -->
-<section id="hero">
-  <div class="blob blob-c"></div>
-  <div class="blob blob-p"></div>
-  <div class="hero-inner">
-
-    <div class="hero-text">
-      <div class="hero-badge" data-animate>DevSecOps Consulting</div>
-      <h1 data-animate data-delay="1">
-        Sichere<br>Infrastruktur.<br>
-        Ohne eigenes<br>
-        <span class="grad-text">DevOps-Team.</span>
-      </h1>
-      <p data-animate data-delay="2">
-        Ich bringe Enterprise-Level DevSecOps in Ihr Startup oder KMU –
-        pragmatisch, hands-on und so, dass Ihr Team am Ende selbst damit umgehen kann.
-      </p>
-      <div class="hero-btns" data-animate data-delay="3">
-        <a href="#contact" class="btn-grad">Kostenloses Erstgespräch</a>
-        <a href="#services" class="btn-outline">Leistungen ansehen</a>
-      </div>
-    </div>
-
-    <!-- Kubernetes Orbital Graphic -->
-    <div class="hero-visual" data-animate data-delay="2">
-      <div class="orbital">
-        <div class="ring ring-out"><div class="rdot"></div></div>
-        <div class="ring ring-mid"><div class="rdot"></div></div>
-        <div class="ring ring-in" ><div class="rdot"></div></div>
-        <div class="k8s-hub">
-          <svg viewBox="-100 -100 200 200" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <linearGradient id="kg" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0%" stop-color="#06b6d4"/>
-                <stop offset="100%" stop-color="#7c3aed"/>
-              </linearGradient>
-            </defs>
-            <circle r="78" fill="none" stroke="url(#kg)" stroke-width="2.5"/>
-            <circle r="13" fill="none" stroke="url(#kg)" stroke-width="2.5"/>
-            <g stroke="url(#kg)" stroke-width="2" stroke-linecap="round">
-              <line x1="0"    y1="-13"  x2="0"     y2="-71"/>
-              <line x1="10.2" y1="-8.1" x2="55.5"  y2="-44.3"/>
-              <line x1="12.7" y1="2.9"  x2="69.2"  y2="15.8"/>
-              <line x1="5.6"  y1="11.7" x2="30.8"  y2="64.0"/>
-              <line x1="-5.6" y1="11.7" x2="-30.8" y2="64.0"/>
-              <line x1="-12.7" y1="2.9" x2="-69.2" y2="15.8"/>
-              <line x1="-10.2" y1="-8.1" x2="-55.5" y2="-44.3"/>
-            </g>
-            <g fill="url(#kg)">
-              <circle cx="0"    cy="-78"  r="5"/>
-              <circle cx="61.0" cy="-48.6" r="5"/>
-              <circle cx="76.0" cy="17.4"  r="5"/>
-              <circle cx="33.8" cy="70.3"  r="5"/>
-              <circle cx="-33.8" cy="70.3" r="5"/>
-              <circle cx="-76.0" cy="17.4" r="5"/>
-              <circle cx="-61.0" cy="-48.6" r="5"/>
-            </g>
-          </svg>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ─── SERVICES ──────────────────────────────────────────────── -->
-<section id="services">
-  <div class="inner s-light">
-    <div class="sec-label" data-animate>Leistungen</div>
-    <h2 class="sec-title" data-animate>Was ich für Sie tue</h2>
-    <p class="sec-sub" data-animate>
-      Von der ersten Kubernetes-Installation bis zur abgesicherten CI/CD-Pipeline –
-      maßgeschneidert für die Realität kleiner Teams.
-    </p>
-    <div class="services-grid">
-
-      <div class="svc-card" style="--c:6,182,212" data-animate>
-        <div class="svc-icon"><i class="devicon-kubernetes-plain colored"></i></div>
-        <h3>Kubernetes &amp; Cloud Native</h3>
-        <p>Cluster-Aufbau, Hardening und betriebssicherer Alltag – on-prem oder in der Cloud. Mit CNAPP-Integration für Laufzeit-Security.</p>
-        <div class="svc-tags">
-          <span class="svc-tag">Kubernetes</span><span class="svc-tag">Helm</span>
-          <span class="svc-tag">CNAPP</span><span class="svc-tag">Network Policies</span>
-        </div>
-      </div>
-
-      <div class="svc-card" style="--c:124,58,237" data-animate>
-        <div class="svc-icon"><i class="devicon-vault-original colored"></i></div>
-        <h3>Secrets &amp; Zero-Trust Security</h3>
-        <p>Sichere Secret-Verwaltung mit HashiCorp Vault und SSH Certificate Authority – kein statisches Passwort bleibt übrig.</p>
-        <div class="svc-tags">
-          <span class="svc-tag">HashiCorp Vault</span><span class="svc-tag">SSH CA</span>
-          <span class="svc-tag">PKI</span><span class="svc-tag">Zero Trust</span>
-        </div>
-      </div>
-
-      <div class="svc-card" style="--c:59,130,246" data-animate>
-        <div class="svc-icon svc-icon--dual">
-          <i class="devicon-github-original"></i>
-          <i class="devicon-gitlab-plain colored"></i>
-        </div>
-        <h3>CI/CD &amp; Automatisierung</h3>
-        <p>Sichere Build-Chains, Container-Scanning und automatisierte Deployments – in GitHub Actions oder GitLab CI/CD.</p>
-        <div class="svc-tags">
-          <span class="svc-tag">GitHub Actions</span><span class="svc-tag">GitLab CI/CD</span>
-          <span class="svc-tag">SAST/DAST</span>
-        </div>
-      </div>
-
-      <div class="svc-card" style="--c:245,158,11" data-animate>
-        <div class="svc-icon svc-icon--dual">
-          <i class="devicon-ansible-plain colored"></i>
-          <i class="devicon-terraform-plain colored"></i>
-        </div>
-        <h3>Infrastructure as Code</h3>
-        <p>Reproduzierbare Infrastruktur mit Ansible und Terraform – Provisioning, Konfigurationsmanagement und Compliance automatisiert.</p>
-        <div class="svc-tags">
-          <span class="svc-tag">Ansible</span><span class="svc-tag">Terraform</span>
-          <span class="svc-tag">Linux</span><span class="svc-tag">Hardening</span>
-        </div>
-      </div>
-
-      <div class="svc-card" style="--c:16,185,129" data-animate>
-        <div class="svc-icon svc-icon--dual">
-          <i class="devicon-apachekafka-original"></i>
-          <i class="devicon-apachespark-plain colored"></i>
-        </div>
-        <h3>Big Data &amp; Datenplattformen</h3>
-        <p>Aufbau und Betrieb von Datenplattformen im Kubernetes-Umfeld – skalierbar, observierbar, mit klaren Datenpipelines.</p>
-        <div class="svc-tags">
-          <span class="svc-tag">Spark</span><span class="svc-tag">Kafka</span>
-          <span class="svc-tag">Monitoring</span>
-        </div>
-      </div>
-
-      <div class="svc-card" style="--c:249,115,22" data-animate>
-        <div class="svc-icon"><i class="devicon-python-plain colored"></i></div>
-        <h3>Python-Automatisierung</h3>
-        <p>Custom-Scripts, Operator-Logik, Glue-Code und CLI-Tools – alles was Ihren Betrieb schlanker macht und manuelle Arbeit eliminiert.</p>
-        <div class="svc-tags">
-          <span class="svc-tag">Python</span><span class="svc-tag">Automation</span>
-          <span class="svc-tag">APIs</span>
-        </div>
-      </div>
-
-      <div class="svc-card" style="--c:236,72,153" data-animate>
-        <div class="svc-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" width="26" height="26">
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-            <polyline points="9 12 11 14 15 10"/>
-          </svg>
-        </div>
-        <h3>DevSecOps Enablement</h3>
-        <p>Ich mache es nicht nur für Sie – ich mache es <em>mit</em> Ihnen. Ihr Team lernt dabei und kann danach selbst betreiben. Kein Vendor Lock-in.</p>
-        <div class="svc-tags">
-          <span class="svc-tag">Workshops</span><span class="svc-tag">Knowledge Transfer</span>
-        </div>
-      </div>
-
-      <div class="svc-card" style="--c:239,68,68" data-animate>
-        <div class="svc-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="26" height="26">
-            <circle cx="11" cy="11" r="8"/>
-            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
-          </svg>
-        </div>
-        <h3>Security Audit &amp; Assessment</h3>
-        <p>Wo stehen Sie heute? Cluster-Audit, Pipeline-Review, Secret-Scan – Sie bekommen einen klaren Bericht mit priorisierten Maßnahmen.</p>
-        <div class="svc-tags">
-          <span class="svc-tag">Audit</span><span class="svc-tag">CIS Benchmarks</span>
-          <span class="svc-tag">Threat Modeling</span>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ─── QUOTE ──────────────────────────────────────────────────── -->
-<section id="quote">
-  <div class="quote-wrap" data-animate>
-    <span class="quote-mark">"</span>
-    <blockquote>
-      Im Jahr 2026 ist kein Tool zu komplex.<br>
-      <span class="grad-text">Die Menschen mitzunehmen</span><br>
-      bleibt die eigentliche Aufgabe.
-    </blockquote>
-    <p class="quote-attr">— Leitgedanke hinter jedem Projekt</p>
-  </div>
-</section>
-
-<!-- ─── APPROACH ──────────────────────────────────────────────── -->
-<section id="approach">
-  <div class="inner s-dark2">
-    <div class="sec-label" data-animate>Vorgehen</div>
-    <h2 class="sec-title" data-animate>Wie ich arbeite</h2>
-    <p class="sec-sub" data-animate>Pragmatisch, transparent und immer mit dem Ziel, dass Ihr Team am Ende eigenständig ist.</p>
-
-    <!-- CI/CD Pipeline Visual -->
-    <div class="pipeline-wrap" data-animate>
-      <svg viewBox="0 0 720 100" class="pipe-svg">
+<!-- ── HEADER ─────────────────────────────────────────────── -->
+<header class="site-header" id="top">
+  <div class="wrap">
+    <a href="#top" class="logo" aria-label="dollack.dev — Home">
+      <svg class="logo-mark" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <defs>
-          <linearGradient id="pfill" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stop-color="#06b6d4" stop-opacity=".18"/>
-            <stop offset="100%" stop-color="#7c3aed" stop-opacity=".18"/>
+          <linearGradient id="g1" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="var(--brand-1)"/>
+            <stop offset="1" stop-color="var(--brand-2)"/>
           </linearGradient>
-          <linearGradient id="pstroke" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stop-color="#06b6d4"/>
-            <stop offset="100%" stop-color="#7c3aed"/>
+          <linearGradient id="g1s" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="var(--brand-1)" stop-opacity=".4"/>
+            <stop offset="1" stop-color="var(--brand-2)" stop-opacity=".4"/>
           </linearGradient>
         </defs>
-        <!-- Box 1 -->
-        <rect x="10"  y="18" width="130" height="64" rx="10" fill="url(#pfill)" stroke="url(#pstroke)" stroke-width="1.5"/>
-        <text x="75"  y="46" class="pipe-lbl">BUILD</text>
-        <text x="75"  y="63" class="pipe-sub">Code → Image</text>
-        <line x1="140" y1="50" x2="192" y2="50" class="pipe-line"/>
-        <polygon points="192,44 192,56 202,50" class="pipe-arr"/>
-        <!-- Box 2 -->
-        <rect x="202" y="18" width="130" height="64" rx="10" fill="url(#pfill)" stroke="url(#pstroke)" stroke-width="1.5"/>
-        <text x="267" y="46" class="pipe-lbl">TEST</text>
-        <text x="267" y="63" class="pipe-sub">Unit + Integration</text>
-        <line x1="332" y1="50" x2="384" y2="50" class="pipe-line"/>
-        <polygon points="384,44 384,56 394,50" class="pipe-arr"/>
-        <!-- Box 3 -->
-        <rect x="394" y="18" width="130" height="64" rx="10" fill="url(#pfill)" stroke="url(#pstroke)" stroke-width="1.5"/>
-        <text x="459" y="46" class="pipe-lbl">SCAN</text>
-        <text x="459" y="63" class="pipe-sub">SAST · DAST · CVE</text>
-        <line x1="524" y1="50" x2="576" y2="50" class="pipe-line"/>
-        <polygon points="576,44 576,56 586,50" class="pipe-arr"/>
-        <!-- Box 4 -->
-        <rect x="586" y="18" width="124" height="64" rx="10" fill="url(#pfill)" stroke="url(#pstroke)" stroke-width="1.5"/>
-        <text x="648" y="46" class="pipe-lbl">DEPLOY</text>
-        <text x="648" y="63" class="pipe-sub">GitOps · ArgoCD</text>
+        <rect x="2" y="2" width="60" height="60" rx="14" stroke="url(#g1)" stroke-width="2" fill="rgba(15,18,32,0.6)"/>
+        <rect x="14" y="14" width="5" height="36" rx="2.5" fill="url(#g1)"/>
+        <path d="M 19 14 Q 50 14 50 32 Q 50 50 19 50" stroke="url(#g1)" stroke-width="5" stroke-linecap="round" fill="none"/>
+        <path class="dlk-loop" d="M 26 32 C 26 26 32 26 35 32 C 38 38 44 38 44 32 C 44 26 38 26 35 32 C 32 38 26 38 26 32 Z"
+              stroke="url(#g1s)" stroke-width="1.5" fill="none" stroke-dasharray="80"/>
+        <circle class="dlk-pulse" cx="50" cy="50" r="3" fill="var(--brand-2)"/>
       </svg>
-    </div>
+      <span class="wordmark">
+        <span class="wm-name" id="wm-name">dollack</span><span class="wm-dot" id="wm-dot">.</span><span class="wm-tag" id="wm-tag">dev</span>
+      </span>
+    </a>
+    <nav class="primary" id="nav">
+      <a href="#leistungen">Leistungen</a>
+      <a href="#vorgehen">Vorgehen</a>
+      <a href="#ueber">Über mich</a>
+      <a href="#kontakt">Kontakt</a>
+      <a href="#kontakt" class="cta">Erstgespräch →</a>
+    </nav>
+    <button class="menu-btn" aria-label="Menü öffnen" aria-expanded="false" id="menuBtn"><span></span></button>
+  </div>
+</header>
 
-    <div class="approach-steps">
-      <div class="step" data-animate data-delay="0">
-        <div class="step-n">01</div>
-        <h3>Verstehen</h3>
-        <p>Wo stehen Sie heute, was wollen Sie morgen erreichen? Kostenloses Erstgespräch, keine PowerPoint-Show.</p>
+<!-- ── HERO ───────────────────────────────────────────────── -->
+<section class="hero" id="hero">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow"><span class="live"></span>DevSecOps Consulting</span>
+    </div>
+    <h1 class="reveal" style="transition-delay:.08s">
+      Sichere Infrastruktur.<br>
+      Ohne eigenes <span class="grad-text typed-wrap" id="typed"></span><span class="caret"></span>
+    </h1>
+    <p class="lead reveal" style="transition-delay:.16s">
+      Ich bringe Enterprise-Level DevSecOps in Ihr Startup oder KMU — pragmatisch, hands-on und so, dass Ihr Team am Ende selbst damit umgehen kann.
+    </p>
+    <div class="cta-row reveal" style="transition-delay:.24s">
+      <a href="#kontakt" class="btn btn-primary">Kostenloses Erstgespräch <span class="arrow">→</span></a>
+      <a href="#leistungen" class="btn btn-ghost">Leistungen ansehen</a>
+    </div>
+    <div class="stats reveal" style="transition-delay:.32s" id="stats">
+      <div class="stat" data-target="10">
+        <div class="num"><span class="cnt">0</span>+</div>
+        <div class="lbl">Jahre Erfahrung in IT &amp; Security</div>
       </div>
-      <div class="step" data-animate data-delay="1">
-        <div class="step-n">02</div>
-        <h3>Analysieren</h3>
-        <p>Ich analysiere Ihre Infrastruktur, Pipelines und Security-Posture und identifiziere die echten Engpässe.</p>
+      <div class="stat" data-target="100">
+        <div class="num"><span class="cnt">0</span>%</div>
+        <div class="lbl">Knowledge Transfer · kein Lock-in</div>
       </div>
-      <div class="step" data-animate data-delay="2">
-        <div class="step-n">03</div>
-        <h3>Umsetzen</h3>
-        <p>Hands-on Implementierung – in Ihrem Repo, mit Ihrem Team. Klar priorisiert nach Impact.</p>
+      <div class="stat" data-target="24">
+        <div class="num"><span class="cnt">0</span>h</div>
+        <div class="lbl">Reaktionszeit für Anfragen</div>
       </div>
-      <div class="step" data-animate data-delay="3">
-        <div class="step-n">04</div>
-        <h3>Übergeben</h3>
-        <p>Dokumentation, Wissenstransfer, Schulung. Sie sind danach nicht abhängig von mir.</p>
+      <div class="stat">
+        <div class="num">0</div>
+        <div class="lbl">PowerPoint-Shows. Versprochen.</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ─── TARGET ────────────────────────────────────────────────── -->
-<section id="target">
-  <div class="inner s-white">
-    <div class="sec-label" data-animate>Für wen</div>
-    <h2 class="sec-title" data-animate>Genau das Richtige, wenn…</h2>
-    <div class="target-grid">
-      <div class="target-cards">
-        <div class="tcard" data-animate data-delay="0">
-          <div class="ticon">🚀</div>
-          <div>
-            <h4>Sie ein Startup sind</h4>
-            <p>…das schnell skalieren will, aber kein Budget für ein ganzes DevOps-Team hat.</p>
-          </div>
+<!-- ── LEISTUNGEN ─────────────────────────────────────────── -->
+<section class="block" id="leistungen">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="section-eyebrow">Leistungen</div>
+      <h2 class="section-title">Was ich für Sie aufbaue, härte und betreibe.</h2>
+      <p class="section-lead">Vom ersten Cluster bis zur fertigen DevSecOps-Pipeline — alles aus einer Hand, mit klaren Ergebnissen.</p>
+    </div>
+    <div class="services">
+
+      <article class="card reveal" style="--c1:#22d3ee;--c2:#0ea5e9">
+        <div class="icon-tile"><i class="devicon-kubernetes-plain colored" style="font-size:24px"></i></div>
+        <h3>Kubernetes &amp; Cloud Native</h3>
+        <p>Cluster-Aufbau, Hardening und betriebssicherer Alltag — on-prem oder in der Cloud. Mit CNAPP-Integration für Laufzeit-Security.</p>
+        <div class="tags">
+          <span class="tag">Kubernetes</span><span class="tag">Helm</span>
+          <span class="tag">CNAPP</span><span class="tag">Network Policies</span>
         </div>
-        <div class="tcard" data-animate data-delay="1">
-          <div class="ticon">🏢</div>
-          <div>
-            <h4>Sie ein KMU sind</h4>
-            <p>…das Kubernetes einsetzen will oder schon einsetzt, aber das Betriebswissen fehlt.</p>
-          </div>
+      </article>
+
+      <article class="card reveal" style="--c1:#a78bfa;--c2:#8b5cf6;transition-delay:.08s">
+        <div class="icon-tile"><i class="devicon-vault-original colored" style="font-size:24px"></i></div>
+        <h3>Secrets &amp; Zero-Trust Security</h3>
+        <p>Sichere Secret-Verwaltung mit HashiCorp Vault und SSH Certificate Authority — kein statisches Passwort bleibt übrig.</p>
+        <div class="tags">
+          <span class="tag">HashiCorp Vault</span><span class="tag">SSH CA</span>
+          <span class="tag">PKI</span><span class="tag">Zero Trust</span>
         </div>
-        <div class="tcard" data-animate data-delay="2">
-          <div class="ticon">🔒</div>
-          <div>
-            <h4>Security drängt</h4>
-            <p>…ein Audit steht an, Secrets liegen noch in Git, oder Sie wissen nicht wo Sie anfangen sollen.</p>
-          </div>
+      </article>
+
+      <article class="card reveal" style="--c1:#34d399;--c2:#10b981;transition-delay:.16s">
+        <div class="icon-tile">
+          <i class="devicon-github-original" style="font-size:21px"></i>
+          <i class="devicon-gitlab-plain colored" style="font-size:21px"></i>
         </div>
-        <div class="tcard" data-animate data-delay="3">
-          <div class="ticon">⚡</div>
-          <div>
-            <h4>Deployment schmerzt</h4>
-            <p>…Releases sind manuell, fehleranfällig und stressig. Das muss nicht so sein.</p>
-          </div>
+        <h3>CI/CD &amp; GitOps Pipelines</h3>
+        <p>Automatisierte Deployments mit ArgoCD, GitHub Actions und GitLab CI. Vom Commit zur Produktion in Minuten — sicher und nachvollziehbar.</p>
+        <div class="tags">
+          <span class="tag">GitHub Actions</span><span class="tag">GitLab CI/CD</span>
+          <span class="tag">ArgoCD</span><span class="tag">SBOM</span>
         </div>
+      </article>
+
+      <article class="card reveal" style="--c1:#fbbf24;--c2:#f59e0b;transition-delay:.24s">
+        <div class="icon-tile">
+          <i class="devicon-ansible-plain colored" style="font-size:21px"></i>
+          <i class="devicon-terraform-plain colored" style="font-size:21px"></i>
+        </div>
+        <h3>Infrastructure as Code</h3>
+        <p>Terraform, Ansible — Ihre Infrastruktur reproduzierbar, versioniert und in 30 Minuten neu aufgebaut. Inkl. Disaster-Recovery-Plan.</p>
+        <div class="tags">
+          <span class="tag">Ansible</span><span class="tag">Terraform</span>
+          <span class="tag">Linux</span><span class="tag">Hardening</span>
+        </div>
+      </article>
+
+      <article class="card reveal" style="--c1:#ec4899;--c2:#db2777;transition-delay:.32s">
+        <div class="icon-tile">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        </div>
+        <h3>DevSecOps Enablement</h3>
+        <p>Ich mache es nicht nur für Sie — ich mache es <em>mit</em> Ihnen. Ihr Team lernt dabei und kann danach selbst betreiben. Kein Vendor Lock-in.</p>
+        <div class="tags">
+          <span class="tag">Workshops</span><span class="tag">Pairing</span>
+          <span class="tag">Knowledge Transfer</span>
+        </div>
+      </article>
+
+      <article class="card reveal" style="--c1:#f87171;--c2:#ef4444;transition-delay:.4s">
+        <div class="icon-tile">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        </div>
+        <h3>Security Audit &amp; Assessment</h3>
+        <p>Wo stehen Sie heute? Cluster-Audit, Pipeline-Review, Secret-Scan — Sie bekommen einen klaren Bericht mit priorisierten Maßnahmen.</p>
+        <div class="tags">
+          <span class="tag">Audit</span><span class="tag">CIS Benchmarks</span>
+          <span class="tag">Threat Modeling</span>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── VORGEHEN ───────────────────────────────────────────── -->
+<section class="block alt" id="vorgehen">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="section-eyebrow">Vorgehen</div>
+      <h2 class="section-title">Wie ich arbeite.</h2>
+      <p class="section-lead">Pragmatisch, transparent und immer mit dem Ziel, dass Ihr Team am Ende eigenständig ist.</p>
+    </div>
+    <div class="process-flow reveal">
+      <div class="flow-row">
+        <div class="flow-node"><div class="label">Code</div><div class="sub">Git · MRs</div></div>
+        <div class="flow-arrow"></div>
+        <div class="flow-node"><div class="label">Build</div><div class="sub">CI · SBOM</div></div>
+        <div class="flow-arrow"></div>
+        <div class="flow-node"><div class="label">Scan</div><div class="sub">SAST · DAST · CVE</div></div>
+        <div class="flow-arrow"></div>
+        <div class="flow-node"><div class="label">Deploy</div><div class="sub">GitOps · ArgoCD</div></div>
+        <div class="flow-arrow"></div>
+        <div class="flow-node"><div class="label">Observe</div><div class="sub">Loki · Grafana</div></div>
       </div>
-      <div class="callout" data-animate>
-        <h3>Enablement statt Abhängigkeit</h3>
-        <p>
-          Viele Consultants bauen Systeme, die nur sie selbst verstehen.
-          Ich baue Systeme, die Ihr Team selbst betreiben kann –
-          und erkläre dabei jeden Schritt. Das ist mein Versprechen.
-        </p>
-        <ul class="check-list">
-          <li>Keine unnötige Komplexität</li>
-          <li>Open Source first – kein Vendor Lock-in</li>
-          <li>Dokumentation gehört zum Lieferumfang</li>
-          <li>Ihr Team versteht, was läuft</li>
-          <li>Pragmatische Lösungen statt akademischer Theorie</li>
-        </ul>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="n">01</div>
+        <h4>Verstehen</h4>
+        <p>Wo stehen Sie heute, was wollen Sie morgen erreichen? Kostenloses Erstgespräch — keine PowerPoint-Show.</p>
+      </div>
+      <div class="step reveal" style="transition-delay:.08s">
+        <div class="n">02</div>
+        <h4>Analysieren</h4>
+        <p>Kompakter Audit Ihrer Umgebung. Sie bekommen einen Bericht mit Quick-Wins und langfristigen Schritten.</p>
+      </div>
+      <div class="step reveal" style="transition-delay:.16s">
+        <div class="n">03</div>
+        <h4>Umsetzen</h4>
+        <p>Hands-on Implementierung in Sprints. Live-Pairing mit Ihrem Team — jeder Schritt ist nachvollziehbar.</p>
+      </div>
+      <div class="step reveal" style="transition-delay:.24s">
+        <div class="n">04</div>
+        <h4>Übergeben</h4>
+        <p>Dokumentation, Runbooks, Workshops. Ihr Team übernimmt den Betrieb. Ich bleibe optional als Backup.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ─── TECH ──────────────────────────────────────────────────── -->
+<!-- ── ÜBER MICH ──────────────────────────────────────────── -->
+<section class="block" id="ueber">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <div class="section-eyebrow">Über mich</div>
+        <h2 class="section-title">Operator zuerst.<br>Berater dann.</h2>
+        <p>Ich habe die letzten Jahre in Enterprise-Umgebungen Cluster gehärtet, Pipelines gebaut und Teams ausgebildet. Was dort Standard ist, fehlt KMUs und Startups oft komplett — das ist mein Ansatzpunkt.</p>
+        <p style="margin-top:16px">Mein Anspruch: <strong>kein Berater-Geschwätz</strong>. Ich liefere Code, Konfiguration und Dokumentation. Wenn ich gehe, läuft Ihre Plattform — und Ihr Team weiß, wie und warum.</p>
+        <blockquote class="inline-quote reveal" style="transition-delay:.1s">
+          Im Jahr 2026 ist kein Tool zu komplex.<br>
+          <strong>Die Menschen mitzunehmen bleibt die eigentliche Aufgabe.</strong>
+        </blockquote>
+        <div class="cta-row" style="justify-content:flex-start;margin-top:28px">
+          <a href="#kontakt" class="btn btn-primary">Anfragen <span class="arrow">→</span></a>
+        </div>
+      </div>
+      <div class="terminal reveal" style="transition-delay:.14s">
+        <div class="term-bar">
+          <span class="d r"></span><span class="d y"></span><span class="d g"></span>
+          <span class="ttl">~/projects/your-platform</span>
+        </div>
+        <div class="term-body">
+          <span class="row"><span class="p1">$</span> <span class="key">kubectl</span> get nodes</span>
+          <span class="row"><span class="ok">✓</span> <span class="com">3 nodes ready · 0 evictions in 90 days</span></span>
+          <span class="row"><span class="p1">$</span> <span class="key">vault</span> status</span>
+          <span class="row"><span class="ok">✓</span> <span class="com">unsealed · ha-active · auto-unseal via KMS</span></span>
+          <span class="row"><span class="p1">$</span> <span class="key">argocd</span> app sync prod</span>
+          <span class="row"><span class="ok">✓</span> <span class="com">17 apps · in-sync · last drift: 0s</span></span>
+          <span class="row"><span class="p1">$</span> <span class="key">trivy</span> image registry/api:latest</span>
+          <span class="row"><span class="ok">✓</span> <span class="com">no critical CVEs · SBOM signed (cosign)</span></span>
+          <span class="row"><span class="p1">$</span> <span class="key">echo</span> <span class="str">"team handover complete."</span></span>
+          <span class="row term-cursor">&nbsp;</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TECH ───────────────────────────────────────────────── -->
 <section id="tech">
-  <div class="tech-hdr">
-    <div class="sec-label s-dark" data-animate>Technologien</div>
-    <h2 class="sec-title s-dark" data-animate style="color:#f8fafc">Womit ich täglich arbeite</h2>
-    <p class="sec-sub s-dark" data-animate>Kein Hype-Stack – bewährte Tools, die in Produktion funktionieren.</p>
+  <div class="wrap tech-hdr">
+    <div class="section-eyebrow reveal">Technologien</div>
+    <h2 class="section-title reveal">Womit ich täglich arbeite.</h2>
+    <p class="section-lead reveal" style="margin-bottom:0">Kein Hype-Stack — bewährte Tools, die in Produktion funktionieren.</p>
   </div>
   <div class="marquee-wrap">
     <div class="mtrack">
@@ -357,7 +278,6 @@
       <span class="tpill">Ansible</span><span class="tpill">Python</span>
       <span class="tpill">Linux</span><span class="tpill">SSH CA</span>
       <span class="tpill">CNAPP</span><span class="tpill">Helm</span><span class="tpill">Terraform</span>
-      <!-- duplicate for seamless loop -->
       <span class="tpill">Kubernetes</span><span class="tpill">HashiCorp Vault</span>
       <span class="tpill">GitHub Actions</span><span class="tpill">GitLab CI/CD</span>
       <span class="tpill">Ansible</span><span class="tpill">Python</span>
@@ -370,7 +290,6 @@
       <span class="tpill">Docker</span><span class="tpill">OPA / Kyverno</span>
       <span class="tpill">Trivy</span><span class="tpill">Falco</span>
       <span class="tpill">K3s</span><span class="tpill">Istio</span>
-      <!-- duplicate -->
       <span class="tpill">ArgoCD</span><span class="tpill">Terraform</span>
       <span class="tpill">Prometheus</span><span class="tpill">Grafana</span>
       <span class="tpill">Docker</span><span class="tpill">OPA / Kyverno</span>
@@ -380,65 +299,136 @@
   </div>
 </section>
 
-<!-- ─── CONTACT ───────────────────────────────────────────────── -->
-<section id="contact">
-  <div class="inner s-light">
+<!-- ── KONTAKT ────────────────────────────────────────────── -->
+<section class="block alt" id="kontakt">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="section-eyebrow">Kontakt</div>
+      <h2 class="section-title">Lassen Sie uns reden.</h2>
+      <p class="section-lead">Erstes Gespräch kostenlos und unverbindlich. Antwort innerhalb von 24 Stunden.</p>
+    </div>
     <div class="contact-grid">
-      <div class="contact-info" data-animate>
-        <div class="sec-label">Kontakt</div>
-        <h2 class="sec-title">Lassen Sie uns reden.</h2>
-        <p>
-          Erstes Gespräch kostenlos. Kein Verkaufsdruck –
-          ich höre zu, was Sie brauchen, und sage Ihnen ehrlich
-          ob und wie ich helfen kann.
-        </p>
-        <div class="citems">
-          <div class="citem"><div class="cicon">✉</div><span>hallo@antrp.dev</span></div>
-          <div class="citem"><div class="cicon">📍</div><span>Remote · DACH-Region</span></div>
-          <div class="citem"><div class="cicon">🕐</div><span>Antwort innerhalb von 24h</span></div>
+      <div class="contact-info">
+        <div class="info-card reveal">
+          <div class="ic">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          </div>
+          <div>
+            <div class="lab">E-Mail</div>
+            <a class="val" href="mailto:hallo@dollack.dev">hallo@dollack.dev</a>
+          </div>
+        </div>
+        <div class="info-card reveal" style="transition-delay:.08s">
+          <div class="ic">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3v18"/><path d="M3 12h18"/></svg>
+          </div>
+          <div>
+            <div class="lab">Standort</div>
+            <div class="val">Deutschland · Remote &amp; Vor-Ort</div>
+          </div>
+        </div>
+        <div class="info-card reveal" style="transition-delay:.16s">
+          <div class="ic">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          </div>
+          <div>
+            <div class="lab">Verfügbarkeit</div>
+            <div class="val">Q2/Q3 2026 · Anfragen ab sofort</div>
+          </div>
         </div>
       </div>
-      <form id="contactForm" data-animate data-delay="1">
-        <div class="frow">
-          <div class="fgroup">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" placeholder="Max Mustermann" required>
+
+      <form class="contact" id="contactForm">
+        <div class="form-row">
+          <div class="field">
+            <label for="f-name">Name</label>
+            <input id="f-name" name="name" type="text" placeholder="Max Mustermann" required>
           </div>
-          <div class="fgroup">
-            <label for="company">Unternehmen</label>
-            <input type="text" id="company" name="company" placeholder="Acme GmbH">
+          <div class="field">
+            <label for="f-company">Unternehmen</label>
+            <input id="f-company" name="company" type="text" placeholder="Acme GmbH">
           </div>
         </div>
-        <div class="fgroup">
-          <label for="email">E-Mail</label>
-          <input type="email" id="email" name="email" placeholder="max@acme.de" required>
+        <div class="field">
+          <label for="f-email">E-Mail</label>
+          <input id="f-email" name="email" type="email" placeholder="max@acme.de" required>
         </div>
-        <div class="fgroup">
-          <label for="topic">Thema</label>
-          <select id="topic" name="topic">
+        <div class="field">
+          <label for="f-topic">Thema</label>
+          <select id="f-topic" name="topic" required>
             <option value="">Bitte wählen…</option>
-            <option>Kubernetes Setup &amp; Betrieb</option>
-            <option>CI/CD Pipeline</option>
-            <option>Secrets &amp; Security</option>
-            <option>Big Data Plattform</option>
+            <option>Kubernetes &amp; Cloud Native</option>
+            <option>Secrets &amp; Zero Trust</option>
+            <option>CI/CD &amp; GitOps</option>
+            <option>Infrastructure as Code</option>
             <option>Security Audit</option>
             <option>DevSecOps Enablement</option>
             <option>Sonstiges</option>
           </select>
         </div>
-        <div class="fgroup">
-          <label for="message">Nachricht</label>
-          <textarea id="message" name="message" placeholder="Kurze Beschreibung Ihrer Situation und was Sie benötigen…" required></textarea>
+        <div class="field">
+          <label for="f-msg">Nachricht</label>
+          <textarea id="f-msg" name="message" placeholder="Kurze Beschreibung Ihrer Situation und was Sie benötigen…" required></textarea>
         </div>
-        <button type="submit" class="btn-submit">Nachricht senden →</button>
+        <div class="submit-row">
+          <button type="submit" class="btn btn-primary">Nachricht senden <span class="arrow">→</span></button>
+          <span class="form-success" id="formSuccess">✓ Nachricht eingegangen — ich melde mich.</span>
+        </div>
       </form>
     </div>
   </div>
 </section>
 
-<footer>
-  <p>&copy; 2026 ANTRP Consulting · <a href="mailto:hallo@antrp.dev">hallo@antrp.dev</a> · <a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></p>
+<!-- ── FOOTER ─────────────────────────────────────────────── -->
+<footer class="site">
+  <div class="wrap">
+    <div class="logo" style="opacity:.85">
+      <svg class="logo-mark" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+        <rect x="2" y="2" width="60" height="60" rx="14" stroke="var(--brand-1)" stroke-width="2" fill="rgba(15,18,32,0.6)"/>
+        <rect x="14" y="14" width="5" height="36" rx="2.5" fill="var(--brand-1)"/>
+        <path d="M 19 14 Q 50 14 50 32 Q 50 50 19 50" stroke="var(--brand-1)" stroke-width="5" stroke-linecap="round" fill="none"/>
+        <circle cx="50" cy="50" r="3" fill="var(--brand-2)"/>
+      </svg>
+      <span class="wordmark">
+        <span class="wm-name">dollack</span><span class="wm-dot">.</span><span class="wm-tag">dev</span>
+      </span>
+    </div>
+    <div class="legal">
+      <span>© <span id="year"></span> dollack.dev</span>
+      <a href="mailto:hallo@dollack.dev">hallo@dollack.dev</a>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+    </div>
+  </div>
 </footer>
+
+<!-- ── TWEAKS ─────────────────────────────────────────────── -->
+<button class="tweaks-toggle" id="tweaksToggle" aria-label="Branding-Tweaks" title="Branding-Tweaks">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1Z"/></svg>
+</button>
+<aside class="tweaks" id="tweaks">
+  <h5>Branding-Tweaks <button class="x" id="tweaksClose" aria-label="Schließen">×</button></h5>
+  <div class="tw-row">
+    <label>Markenname</label>
+    <div class="pills" id="brandPills">
+      <button class="pill active" data-name="dollack" data-tag="dev" data-dot=".">dollack.dev</button>
+      <button class="pill" data-name="DOLLACK" data-tag="sec" data-dot="·">DOLLACK · sec</button>
+      <button class="pill" data-name="DLK" data-tag="OPS" data-dot="/">DLK / OPS</button>
+      <button class="pill" data-name="Dollack" data-tag="Consulting" data-dot=" ">Dollack Consulting</button>
+    </div>
+  </div>
+  <div class="tw-row">
+    <label>Farb-Palette</label>
+    <div class="swatches" id="palettes">
+      <button class="sw active" data-c1="#22d3ee" data-c2="#8b5cf6" data-c3="#ec4899" style="background:linear-gradient(135deg,#22d3ee,#8b5cf6)" title="Cyan · Violett"></button>
+      <button class="sw" data-c1="#34d399" data-c2="#3b82f6" data-c3="#a855f7" style="background:linear-gradient(135deg,#34d399,#3b82f6)" title="Mint · Blau"></button>
+      <button class="sw" data-c1="#fbbf24" data-c2="#f43f5e" data-c3="#a855f7" style="background:linear-gradient(135deg,#fbbf24,#f43f5e)" title="Amber · Rosé"></button>
+      <button class="sw" data-c1="#7dd3fc" data-c2="#a78bfa" data-c3="#f0abfc" style="background:linear-gradient(135deg,#7dd3fc,#a78bfa)" title="Ice"></button>
+      <button class="sw" data-c1="#f97316" data-c2="#dc2626" data-c3="#facc15" style="background:linear-gradient(135deg,#f97316,#dc2626)" title="Sunset"></button>
+    </div>
+  </div>
+  <p style="font-size:11.5px;color:var(--ink-3);font-family:var(--font-mono);line-height:1.5;margin:0">Klicken — die ganze Seite ändert sich live.</p>
+</aside>
 
 <script src="js/main.js"></script>
 </body>

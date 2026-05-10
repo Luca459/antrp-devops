@@ -1,29 +1,27 @@
 'use strict';
 
-// ── Mobile nav ───────────────────────────────────────────────
-const hamburger = document.getElementById('hamburger');
-const navLinks  = document.getElementById('navLinks');
+// ── Year ──────────────────────────────────────────────────────
+document.getElementById('year').textContent = new Date().getFullYear();
 
-hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
-document.querySelectorAll('#navLinks a').forEach(a =>
-  a.addEventListener('click', () => navLinks.classList.remove('open'))
-);
+// ── Sticky header ─────────────────────────────────────────────
+const header = document.querySelector('.site-header');
+const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 8);
+window.addEventListener('scroll', onScroll, { passive: true });
+onScroll();
 
-// ── Active nav highlight ──────────────────────────────────────
-const navAnchors = document.querySelectorAll('.nav-links a[href^="#"]');
+// ── Mobile menu ───────────────────────────────────────────────
+const menuBtn = document.getElementById('menuBtn');
+const nav     = document.getElementById('nav');
+menuBtn.addEventListener('click', () => {
+  const open = nav.classList.toggle('open');
+  menuBtn.setAttribute('aria-expanded', String(open));
+});
+nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  nav.classList.remove('open');
+  menuBtn.setAttribute('aria-expanded', 'false');
+}));
 
-const sectionObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (!entry.isIntersecting) return;
-    navAnchors.forEach(a => a.classList.remove('active'));
-    const hit = document.querySelector(`.nav-links a[href="#${entry.target.id}"]`);
-    if (hit) hit.classList.add('active');
-  });
-}, { threshold: 0.35 });
-
-document.querySelectorAll('section[id]').forEach(s => sectionObserver.observe(s));
-
-// ── Scroll direction tracking ─────────────────────────────────
+// ── Scroll direction tracking (for replay-on-scroll-up) ───────
 let scrollDir = 'down';
 let lastY = window.scrollY;
 window.addEventListener('scroll', () => {
@@ -31,45 +29,132 @@ window.addEventListener('scroll', () => {
   lastY = window.scrollY;
 }, { passive: true });
 
-// ── Scroll animations (replay on scroll back up) ──────────────
-const animObserver = new IntersectionObserver(entries => {
+// ── Reveal animations (replay on scroll-up) ───────────────────
+const revealIO = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
+      entry.target.classList.add('in');
     } else if (scrollDir === 'up') {
-      // reset so animation replays next time user scrolls down again
-      entry.target.classList.remove('visible');
+      entry.target.classList.remove('in');
     }
   });
 }, { threshold: 0.08 });
 
 requestAnimationFrame(() => {
-  document.querySelectorAll('[data-animate]').forEach(el => animObserver.observe(el));
+  document.querySelectorAll('.reveal').forEach(el => revealIO.observe(el));
 });
 
-// ── Contact form → real backend POST ─────────────────────────
+// ── Typed hero animation ──────────────────────────────────────
+const phrases  = ['DevOps-Team.', 'SRE-Abteilung.', 'Security-Crew.', 'Vendor-Lock.'];
+const typedEl  = document.getElementById('typed');
+if (typedEl) {
+  let phraseIdx = 0, charIdx = 0, deleting = false;
+  function tick() {
+    const word = phrases[phraseIdx];
+    if (!deleting) {
+      charIdx++;
+      typedEl.textContent = word.slice(0, charIdx);
+      if (charIdx === word.length) { deleting = true; setTimeout(tick, 1600); return; }
+      setTimeout(tick, 70);
+    } else {
+      charIdx--;
+      typedEl.textContent = word.slice(0, charIdx);
+      if (charIdx === 0) { deleting = false; phraseIdx = (phraseIdx + 1) % phrases.length; }
+      setTimeout(tick, 35);
+    }
+  }
+  typedEl.textContent = '';
+  setTimeout(tick, 700);
+}
+
+// ── Counter animations ────────────────────────────────────────
+const cntIO = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    const el     = e.target;
+    const target = parseInt(el.dataset.target, 10);
+    const cnt    = el.querySelector('.cnt');
+    if (cnt && target > 0) {
+      const dur = 1200, t0 = performance.now();
+      const step = t => {
+        const p = Math.min(1, (t - t0) / dur);
+        cnt.textContent = Math.round((1 - Math.pow(1 - p, 3)) * target);
+        if (p < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    }
+    cntIO.unobserve(el);
+  });
+}, { threshold: 0.4 });
+document.querySelectorAll('#stats .stat[data-target]').forEach(s => cntIO.observe(s));
+
+// ── Stat hover spotlight ──────────────────────────────────────
+document.querySelectorAll('.stat').forEach(el => {
+  el.addEventListener('mousemove', e => {
+    const r = el.getBoundingClientRect();
+    el.style.setProperty('--mx', ((e.clientX - r.left) / r.width  * 100) + '%');
+    el.style.setProperty('--my', ((e.clientY - r.top)  / r.height * 100) + '%');
+  });
+});
+
+// ── Smooth scroll ─────────────────────────────────────────────
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const id = a.getAttribute('href');
+    if (!id || id === '#') return;
+    const target = document.querySelector(id);
+    if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  });
+});
+
+// ── Contact form → backend POST ───────────────────────────────
 document.getElementById('contactForm').addEventListener('submit', async function (e) {
   e.preventDefault();
-  const btn  = this.querySelector('.btn-submit');
-  const orig = btn.textContent;
+  const btn     = this.querySelector('.btn-primary');
+  const success = document.getElementById('formSuccess');
+  const orig    = btn.innerHTML;
 
-  btn.textContent = 'Wird gesendet…';
-  btn.disabled = true;
+  btn.innerHTML = 'Wird gesendet…';
+  btn.disabled  = true;
 
   try {
-    const res = await fetch('/api/contact', {
-      method: 'POST',
-      body: new FormData(this),
-    });
+    const res = await fetch('/api/contact', { method: 'POST', body: new FormData(this) });
     if (!res.ok) throw new Error(await res.text());
-
-    btn.textContent = 'Nachricht gesendet ✓';
-    btn.style.background = 'linear-gradient(135deg,#10b981,#06b6d4)';
+    success.classList.add('show');
     this.reset();
-    setTimeout(() => { btn.textContent = orig; btn.style.background = ''; btn.disabled = false; }, 3500);
+    setTimeout(() => success.classList.remove('show'), 4500);
+    btn.innerHTML = orig;
+    btn.disabled  = false;
   } catch {
-    btn.textContent = 'Fehler – bitte direkt per E-Mail';
+    btn.innerHTML = 'Fehler – bitte direkt per E-Mail';
     btn.style.background = 'linear-gradient(135deg,#ef4444,#dc2626)';
-    setTimeout(() => { btn.textContent = orig; btn.style.background = ''; btn.disabled = false; }, 4000);
+    setTimeout(() => { btn.innerHTML = orig; btn.style.background = ''; btn.disabled = false; }, 4000);
   }
+});
+
+// ── Tweaks panel ──────────────────────────────────────────────
+const tweaks = document.getElementById('tweaks');
+document.getElementById('tweaksToggle').addEventListener('click', () => tweaks.classList.add('open'));
+document.getElementById('tweaksClose').addEventListener('click', () => tweaks.classList.remove('open'));
+
+document.querySelectorAll('#brandPills .pill').forEach(p => {
+  p.addEventListener('click', () => {
+    document.querySelectorAll('#brandPills .pill').forEach(x => x.classList.remove('active'));
+    p.classList.add('active');
+    const { name, tag, dot } = p.dataset;
+    document.querySelectorAll('.wm-name').forEach(el => el.textContent = name);
+    document.querySelectorAll('.wm-tag').forEach(el => el.textContent = tag);
+    document.querySelectorAll('.wm-dot').forEach(el => el.textContent = dot);
+    document.title = `${name}${dot}${tag} — Sichere Infrastruktur ohne eigenes DevOps-Team`;
+  });
+});
+
+document.querySelectorAll('#palettes .sw').forEach(s => {
+  s.addEventListener('click', () => {
+    document.querySelectorAll('#palettes .sw').forEach(x => x.classList.remove('active'));
+    s.classList.add('active');
+    document.documentElement.style.setProperty('--brand-1', s.dataset.c1);
+    document.documentElement.style.setProperty('--brand-2', s.dataset.c2);
+    document.documentElement.style.setProperty('--brand-3', s.dataset.c3);
+  });
 });
