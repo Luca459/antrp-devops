@@ -162,18 +162,48 @@ nav{
   border:1px solid #e2e8f0;
   border-top:3px solid rgba(var(--c,6,182,212),1);
   box-shadow:0 1px 4px rgba(0,0,0,.05),0 4px 16px rgba(0,0,0,.04);
-  transition:box-shadow .25s,transform .2s;
+  /* use separate translate so it doesn't conflict with animation transform */
+  translate:0 0;
+  transition:translate .3s cubic-bezier(.22,1,.36,1),
+             box-shadow .3s ease,
+             border-color .25s;
 }
 .svc-card:hover{
-  box-shadow:0 6px 20px rgba(0,0,0,.08),0 16px 48px rgba(0,0,0,.07);
-  transform:translateY(-4px);
+  translate:0 -6px;
+  box-shadow:
+    0 8px 30px rgba(var(--c,6,182,212),.15),
+    0 20px 60px rgba(0,0,0,.08);
+}
+.svc-card:hover .svc-icon{
+  transform:scale(1.12);
+  background:rgba(var(--c,6,182,212),.18);
+}
+/* card-specific entrance: scale + blur pop */
+.svc-card[data-animate]{
+  opacity:0;
+  transform:translateY(28px) scale(0.9);
+  filter:blur(3px);
+  transition:
+    opacity .5s cubic-bezier(.22,1,.36,1),
+    transform .5s cubic-bezier(.22,1,.36,1),
+    filter .4s ease;
+  will-change:opacity,transform,filter;
+}
+.svc-card[data-animate].visible{
+  opacity:1;
+  transform:translateY(0) scale(1);
+  filter:blur(0);
 }
 .svc-icon{
-  width:46px;height:46px;border-radius:10px;
+  width:52px;height:52px;border-radius:12px;
   display:flex;align-items:center;justify-content:center;
-  font-size:1.35rem;margin-bottom:1.1rem;
+  margin-bottom:1.25rem;
   background:rgba(var(--c,6,182,212),.1);
+  color:rgba(var(--c,6,182,212),1);
+  transition:transform .3s cubic-bezier(.22,1,.36,1), background .25s;
+  flex-shrink:0;
 }
+.svc-icon svg{width:26px;height:26px}
 .svc-card h3{font-size:1rem;font-weight:700;color:var(--text-l1);margin-bottom:.5rem}
 .svc-card p {color:var(--text-l2);font-size:.875rem;line-height:1.7;margin-bottom:1.25rem}
 .svc-tags{display:flex;flex-wrap:wrap;gap:.4rem}
