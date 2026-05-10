@@ -195,15 +195,20 @@ nav{
   filter:blur(0);
 }
 .svc-icon{
-  width:52px;height:52px;border-radius:12px;
-  display:flex;align-items:center;justify-content:center;
+  width:56px;height:56px;border-radius:14px;
+  display:flex;align-items:center;justify-content:center;gap:4px;
   margin-bottom:1.25rem;
   background:rgba(var(--c,6,182,212),.1);
   color:rgba(var(--c,6,182,212),1);
   transition:transform .3s cubic-bezier(.22,1,.36,1), background .25s;
   flex-shrink:0;
 }
-.svc-icon svg{width:26px;height:26px}
+.svc-icon i { font-size:28px;line-height:1 }
+.svc-icon svg{ width:26px;height:26px }
+/* dual-logo cards: two icons side by side */
+.svc-icon--dual i { font-size:20px }
+/* kafka icon uses currentColor (no colored variant) */
+.devicon-apachekafka-original { color:rgba(var(--c,16,185,129),1) }
 .svc-card h3{font-size:1rem;font-weight:700;color:var(--text-l1);margin-bottom:.5rem}
 .svc-card p {color:var(--text-l2);font-size:.875rem;line-height:1.7;margin-bottom:1.25rem}
 .svc-tags{display:flex;flex-wrap:wrap;gap:.4rem}

@@ -9,18 +9,8 @@ document.querySelectorAll('#navLinks a').forEach(a =>
   a.addEventListener('click', () => navLinks.classList.remove('open'))
 );
 
-// ── Active nav highlight on scroll ──────────────────────────
+// ── Active nav highlight ──────────────────────────────────────
 const navAnchors = document.querySelectorAll('.nav-links a[href^="#"]');
-
-new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (!entry.isIntersecting) return;
-    navAnchors.forEach(a => a.classList.remove('active'));
-    const hit = document.querySelector(`.nav-links a[href="#${entry.target.id}"]`);
-    if (hit) hit.classList.add('active');
-  });
-}, { threshold: 0.4 })
-  .observe || void 0; // just define — observed below per-section
 
 const sectionObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
@@ -33,27 +23,31 @@ const sectionObserver = new IntersectionObserver(entries => {
 
 document.querySelectorAll('section[id]').forEach(s => sectionObserver.observe(s));
 
-// ── Scroll-in animations ─────────────────────────────────────
-// rootMargin fires the callback when element is 50px from entering viewport
+// ── Scroll direction tracking ─────────────────────────────────
+let scrollDir = 'down';
+let lastY = window.scrollY;
+window.addEventListener('scroll', () => {
+  scrollDir = window.scrollY >= lastY ? 'down' : 'up';
+  lastY = window.scrollY;
+}, { passive: true });
+
+// ── Scroll animations (replay on scroll back up) ──────────────
 const animObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
-    if (!entry.isIntersecting) return;
-    entry.target.classList.add('visible');
-    animObserver.unobserve(entry.target);
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    } else if (scrollDir === 'up') {
+      // reset so animation replays next time user scrolls down again
+      entry.target.classList.remove('visible');
+    }
   });
-}, {
-  threshold:  0,
-  rootMargin: '0px 0px -50px 0px'
-});
+}, { threshold: 0.08 });
 
-// Set up after first paint so hero elements get immediate treatment
 requestAnimationFrame(() => {
-  document.querySelectorAll('[data-animate]').forEach(el => {
-    animObserver.observe(el);
-  });
+  document.querySelectorAll('[data-animate]').forEach(el => animObserver.observe(el));
 });
 
-// ── Contact form ─────────────────────────────────────────────
+// ── Contact form ──────────────────────────────────────────────
 document.getElementById('contactForm').addEventListener('submit', function (e) {
   e.preventDefault();
   const btn = this.querySelector('.btn-submit');
