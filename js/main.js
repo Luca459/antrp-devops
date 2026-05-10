@@ -88,6 +88,15 @@ const cntIO = new IntersectionObserver(entries => {
 }, { threshold: 0.4 });
 document.querySelectorAll('#stats .stat[data-target]').forEach(s => cntIO.observe(s));
 
+// ── Card mouse spotlight ──────────────────────────────────────
+document.querySelectorAll('.card').forEach(el => {
+  el.addEventListener('mousemove', e => {
+    const r = el.getBoundingClientRect();
+    el.style.setProperty('--cx', ((e.clientX - r.left) / r.width  * 100) + '%');
+    el.style.setProperty('--cy', ((e.clientY - r.top)  / r.height * 100) + '%');
+  });
+});
+
 // ── Stat hover spotlight ──────────────────────────────────────
 document.querySelectorAll('.stat').forEach(el => {
   el.addEventListener('mousemove', e => {
