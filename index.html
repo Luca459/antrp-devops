@@ -12,6 +12,74 @@
 </head>
 <body>
 
+<!-- ─── BACKGROUND TECH LAYER ────────────────────────────────── -->
+<div class="bg-tech-layer" aria-hidden="true">
+
+  <!-- Kubernetes Wheel -->
+  <svg class="bg-k8s" viewBox="-100 -100 200 200" xmlns="http://www.w3.org/2000/svg">
+    <circle r="80" fill="none" stroke="currentColor" stroke-width="5"/>
+    <circle r="13" fill="none" stroke="currentColor" stroke-width="4"/>
+    <!-- 7 spokes -->
+    <line x1="0" y1="-13" x2="0" y2="-73"/>
+    <line x1="10.9" y1="-8.7" x2="57.1" y2="-45.6"/>
+    <line x1="13.6" y1="3.1" x2="71.3" y2="16.3"/>
+    <line x1="6.1" y1="12.5" x2="31.7" y2="65.9"/>
+    <line x1="-6.1" y1="12.5" x2="-31.7" y2="65.9"/>
+    <line x1="-13.6" y1="3.1" x2="-71.3" y2="16.3"/>
+    <line x1="-10.9" y1="-8.7" x2="-57.1" y2="-45.6"/>
+    <!-- spoke dots -->
+    <circle cx="0" cy="-80" r="6" fill="currentColor"/>
+    <circle cx="62.5" cy="-50" r="6" fill="currentColor"/>
+    <circle cx="77.5" cy="17.7" r="6" fill="currentColor"/>
+    <circle cx="34.6" cy="71.9" r="6" fill="currentColor"/>
+    <circle cx="-34.6" cy="71.9" r="6" fill="currentColor"/>
+    <circle cx="-77.5" cy="17.7" r="6" fill="currentColor"/>
+    <circle cx="-62.5" cy="-50" r="6" fill="currentColor"/>
+  </svg>
+
+  <!-- Vault / Tresor -->
+  <svg class="bg-vault" viewBox="-100 -100 200 200" xmlns="http://www.w3.org/2000/svg">
+    <circle r="85" fill="none" stroke="currentColor" stroke-width="6"/>
+    <circle r="58" fill="none" stroke="currentColor" stroke-width="4"/>
+    <!-- vault bolts N/E/S/W -->
+    <line x1="0" y1="-58" x2="0" y2="-85" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
+    <line x1="58" y1="0" x2="85" y2="0" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
+    <line x1="0" y1="58" x2="0" y2="85" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
+    <line x1="-58" y1="0" x2="-85" y2="0" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
+    <!-- diagonal bolt dots -->
+    <circle cx="41" cy="-41" r="5" fill="currentColor"/>
+    <circle cx="41" cy="41" r="5" fill="currentColor"/>
+    <circle cx="-41" cy="41" r="5" fill="currentColor"/>
+    <circle cx="-41" cy="-41" r="5" fill="currentColor"/>
+    <!-- center handle -->
+    <circle r="20" fill="none" stroke="currentColor" stroke-width="4"/>
+    <circle r="6" fill="currentColor"/>
+    <line x1="20" y1="0" x2="38" y2="0" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+  </svg>
+
+  <!-- CI/CD Pipeline -->
+  <svg class="bg-pipeline" viewBox="0 0 680 100" xmlns="http://www.w3.org/2000/svg">
+    <!-- boxes -->
+    <rect x="10" y="32" width="100" height="36" rx="8" fill="none" stroke="currentColor" stroke-width="3"/>
+    <text x="60" y="55" text-anchor="middle" font-size="11" font-weight="700" fill="currentColor" font-family="Inter,sans-serif">BUILD</text>
+    <rect x="190" y="32" width="100" height="36" rx="8" fill="none" stroke="currentColor" stroke-width="3"/>
+    <text x="240" y="55" text-anchor="middle" font-size="11" font-weight="700" fill="currentColor" font-family="Inter,sans-serif">TEST</text>
+    <rect x="370" y="32" width="100" height="36" rx="8" fill="none" stroke="currentColor" stroke-width="3"/>
+    <text x="420" y="55" text-anchor="middle" font-size="11" font-weight="700" fill="currentColor" font-family="Inter,sans-serif">SCAN</text>
+    <rect x="550" y="32" width="110" height="36" rx="8" fill="none" stroke="currentColor" stroke-width="3"/>
+    <text x="605" y="55" text-anchor="middle" font-size="11" font-weight="700" fill="currentColor" font-family="Inter,sans-serif">DEPLOY</text>
+    <!-- connecting arrows -->
+    <line x1="110" y1="50" x2="188" y2="50" stroke="currentColor" stroke-width="2" stroke-dasharray="6 5" class="pipeline-flow"/>
+    <line x1="290" y1="50" x2="368" y2="50" stroke="currentColor" stroke-width="2" stroke-dasharray="6 5" class="pipeline-flow"/>
+    <line x1="470" y1="50" x2="548" y2="50" stroke="currentColor" stroke-width="2" stroke-dasharray="6 5" class="pipeline-flow"/>
+    <!-- arrowheads -->
+    <polygon points="188,44 188,56 198,50" fill="currentColor"/>
+    <polygon points="368,44 368,56 378,50" fill="currentColor"/>
+    <polygon points="548,44 548,56 558,50" fill="currentColor"/>
+  </svg>
+
+</div>
+
 <!-- ─── NAV ──────────────────────────────────────────────────── -->
 <nav>
   <a href="#hero" class="nav-logo">ANTRP<span>.</span>DevSecOps</a>
@@ -32,20 +100,20 @@
   <div class="hero-grid"></div>
   <div class="hero-glow"></div>
   <div class="hero-content">
-    <div class="hero-badge">DevSecOps Consulting</div>
-    <h1>
+    <div class="hero-badge" data-animate>DevSecOps Consulting</div>
+    <h1 data-animate data-delay="1">
       Sichere Infrastruktur.<br>
       <em>Ohne eigenes DevOps-Team.</em>
     </h1>
-    <p class="hero-sub">
-      Ich bringe Enterprise-Level DevSecOps in dein Startup oder KMU –
-      pragmatisch, hands-on und so, dass dein Team am Ende selbst damit umgehen kann.
+    <p class="hero-sub" data-animate data-delay="2">
+      Ich bringe Enterprise-Level DevSecOps in Ihr Startup oder KMU –
+      pragmatisch, hands-on und so, dass Ihr Team am Ende selbst damit umgehen kann.
     </p>
-    <div class="hero-actions">
+    <div class="hero-actions" data-animate data-delay="3">
       <a href="#contact" class="btn-primary">Kostenloses Erstgespräch</a>
       <a href="#services" class="btn-secondary">Leistungen ansehen</a>
     </div>
-    <div class="hero-stats">
+    <div class="hero-stats" data-animate data-delay="4">
       <div class="stat-item">
         <div class="stat-num">K8s</div>
         <div class="stat-label">Kubernetes &amp; Cloud Native</div>
@@ -65,15 +133,15 @@
 <!-- ─── SERVICES ─────────────────────────────────────────────── -->
 <section id="services">
   <div class="section-inner">
-    <span class="section-tag">Leistungen</span>
-    <h2>Was ich für dich tue</h2>
-    <p class="section-desc">
+    <span class="section-tag" data-animate>Leistungen</span>
+    <h2 data-animate>Was ich für Sie tue</h2>
+    <p class="section-desc" data-animate>
       Von der ersten Kubernetes-Installation bis zur vollständig abgesicherten CI/CD-Pipeline –
       maßgeschneidert für die Realität kleiner Teams.
     </p>
     <div class="services-grid">
 
-      <div class="service-card">
+      <div class="service-card" data-animate data-delay="0">
         <span class="service-icon">☸️</span>
         <h3>Kubernetes &amp; Cloud Native</h3>
         <p>
@@ -88,7 +156,7 @@
         </div>
       </div>
 
-      <div class="service-card">
+      <div class="service-card" data-animate data-delay="1">
         <span class="service-icon">🔐</span>
         <h3>Secrets &amp; Zero-Trust Security</h3>
         <p>
@@ -103,7 +171,7 @@
         </div>
       </div>
 
-      <div class="service-card">
+      <div class="service-card" data-animate data-delay="2">
         <span class="service-icon">⚙️</span>
         <h3>CI/CD &amp; Automatisierung</h3>
         <p>
@@ -118,7 +186,7 @@
         </div>
       </div>
 
-      <div class="service-card">
+      <div class="service-card" data-animate data-delay="3">
         <span class="service-icon">🤖</span>
         <h3>Infrastructure as Code</h3>
         <p>
@@ -133,7 +201,7 @@
         </div>
       </div>
 
-      <div class="service-card">
+      <div class="service-card" data-animate data-delay="4">
         <span class="service-icon">📊</span>
         <h3>Big Data &amp; Datenplattformen</h3>
         <p>
@@ -148,12 +216,12 @@
         </div>
       </div>
 
-      <div class="service-card">
+      <div class="service-card" data-animate data-delay="5">
         <span class="service-icon">🐍</span>
         <h3>Python-Automatisierung &amp; Tooling</h3>
         <p>
           Custom-Scripts, Operator-Logik, Glue-Code und CLI-Tools –
-          alles was deinen Betrieb schlanker macht und manuelle Arbeit eliminiert.
+          alles was Ihren Betrieb schlanker macht und manuelle Arbeit eliminiert.
         </p>
         <div class="service-tags">
           <span class="tag">Python</span>
@@ -163,11 +231,11 @@
         </div>
       </div>
 
-      <div class="service-card">
+      <div class="service-card" data-animate data-delay="6">
         <span class="service-icon">🛡️</span>
         <h3>DevSecOps Enablement</h3>
         <p>
-          Ich mache nur für dich – ich mache es <em>mit</em> dir. Dein Team lernt
+          Ich mache es nicht nur für Sie – ich mache es <em>mit</em> Ihnen. Ihr Team lernt
           dabei und kann die Systeme danach selbst betreiben. Kein Vendor Lock-in.
         </p>
         <div class="service-tags">
@@ -177,12 +245,12 @@
         </div>
       </div>
 
-      <div class="service-card">
+      <div class="service-card" data-animate data-delay="7">
         <span class="service-icon">🔍</span>
         <h3>Security Audit &amp; Assessment</h3>
         <p>
-          Wo stehst du heute? Cluster-Audit, Pipeline-Review, Secret-Scan –
-          du bekommst einen klaren Bericht mit priorisierten Maßnahmen.
+          Wo stehen Sie heute? Cluster-Audit, Pipeline-Review, Secret-Scan –
+          Sie bekommen einen klaren Bericht mit priorisierten Maßnahmen.
         </p>
         <div class="service-tags">
           <span class="tag">Audit</span>
@@ -198,32 +266,32 @@
 <!-- ─── APPROACH ──────────────────────────────────────────────── -->
 <section id="approach">
   <div class="section-inner">
-    <span class="section-tag">Vorgehen</span>
-    <h2>Wie ich arbeite</h2>
-    <p class="section-desc">
+    <span class="section-tag" data-animate>Vorgehen</span>
+    <h2 data-animate>Wie ich arbeite</h2>
+    <p class="section-desc" data-animate>
       Kein Overhead, kein Bullshit. Pragmatisch, transparent und immer mit dem Ziel,
-      dass dein Team am Ende eigenständig ist.
+      dass Ihr Team am Ende eigenständig ist.
     </p>
     <div class="approach-steps">
-      <div class="step">
+      <div class="step" data-animate data-delay="0">
         <div class="step-num">01</div>
         <h3>Verstehen</h3>
-        <p>Wo steht ihr heute, was wollt ihr morgen erreichen? Kostenloses Erstgespräch, keine PowerPoint-Show.</p>
+        <p>Wo stehen Sie heute, was wollen Sie morgen erreichen? Kostenloses Erstgespräch, keine PowerPoint-Show.</p>
       </div>
-      <div class="step">
+      <div class="step" data-animate data-delay="1">
         <div class="step-num">02</div>
         <h3>Analysieren</h3>
-        <p>Ich schaue mir eure Infrastruktur, Pipelines und Security-Posture an und identifiziere die echten Engpässe.</p>
+        <p>Ich analysiere Ihre Infrastruktur, Pipelines und Security-Posture und identifiziere die echten Engpässe.</p>
       </div>
-      <div class="step">
+      <div class="step" data-animate data-delay="2">
         <div class="step-num">03</div>
         <h3>Umsetzen</h3>
-        <p>Hands-on Implementierung – in eurem Repo, mit eurem Team. Klar priorisiert nach Impact.</p>
+        <p>Hands-on Implementierung – in Ihrem Repo, mit Ihrem Team. Klar priorisiert nach Impact.</p>
       </div>
-      <div class="step">
+      <div class="step" data-animate data-delay="3">
         <div class="step-num">04</div>
         <h3>Übergeben</h3>
-        <p>Dokumentation, Wissenstransfer, Schulung. Ihr seid danach nicht abhängig von mir.</p>
+        <p>Dokumentation, Wissenstransfer, Schulung. Sie sind danach nicht abhängig von mir.</p>
       </div>
     </div>
   </div>
@@ -232,32 +300,32 @@
 <!-- ─── TARGET ────────────────────────────────────────────────── -->
 <section id="target">
   <div class="section-inner">
-    <span class="section-tag">Für wen</span>
-    <h2>Genau das Richtige, wenn…</h2>
+    <span class="section-tag" data-animate>Für wen</span>
+    <h2 data-animate>Genau das Richtige, wenn…</h2>
     <div class="target-grid">
       <ul class="target-list">
-        <li>
+        <li data-animate data-delay="0">
           <span class="target-icon">🚀</span>
           <div>
-            <h4>Du ein Startup bist</h4>
+            <h4>Sie ein Startup sind</h4>
             <p>…das schnell skalieren will, aber kein Budget für ein ganzes DevOps-Team hat.</p>
           </div>
         </li>
-        <li>
+        <li data-animate data-delay="1">
           <span class="target-icon">🏢</span>
           <div>
-            <h4>Du ein KMU bist</h4>
+            <h4>Sie ein KMU sind</h4>
             <p>…das Kubernetes einsetzen will oder schon einsetzt, aber das Betriebswissen fehlt.</p>
           </div>
         </li>
-        <li>
+        <li data-animate data-delay="2">
           <span class="target-icon">🔒</span>
           <div>
             <h4>Security drängt</h4>
-            <p>…ein Audit steht an, Secrets liegen noch in Git, oder du weißt nicht wo du anfangen sollst.</p>
+            <p>…ein Audit steht an, Secrets liegen noch in Git, oder Sie wissen nicht wo Sie anfangen sollen.</p>
           </div>
         </li>
-        <li>
+        <li data-animate data-delay="3">
           <span class="target-icon">⚡</span>
           <div>
             <h4>Deployment schmerzt</h4>
@@ -265,18 +333,18 @@
           </div>
         </li>
       </ul>
-      <div class="target-callout">
+      <div class="target-callout" data-animate>
         <h3>Enablement statt Abhängigkeit</h3>
         <p>
           Viele Consultants bauen Systeme, die nur sie selbst verstehen.
-          Ich baue Systeme, die dein Team selbst betreiben kann –
+          Ich baue Systeme, die Ihr Team selbst betreiben kann –
           und erkläre dabei jeden Schritt. Das ist mein Versprechen.
         </p>
         <ul class="check-list">
-          <li>Keine unnötigen Komplexität</li>
+          <li>Keine unnötige Komplexität</li>
           <li>Open Source first – kein Vendor Lock-in</li>
           <li>Dokumentation gehört zum Lieferumfang</li>
-          <li>Dein Team versteht was läuft</li>
+          <li>Ihr Team versteht was läuft</li>
           <li>Pragmatische Lösungen statt akademischer Theorie</li>
         </ul>
       </div>
@@ -287,10 +355,10 @@
 <!-- ─── TECH ──────────────────────────────────────────────────── -->
 <section id="tech">
   <div class="section-inner">
-    <span class="section-tag">Technologien</span>
-    <h2>Womit ich täglich arbeite</h2>
-    <p class="section-desc">Kein Hype-Stack – bewährte Tools, die in Produktion funktionieren.</p>
-    <div class="tech-logos">
+    <span class="section-tag" data-animate>Technologien</span>
+    <h2 data-animate>Womit ich täglich arbeite</h2>
+    <p class="section-desc" data-animate>Kein Hype-Stack – bewährte Tools, die in Produktion funktionieren.</p>
+    <div class="tech-logos" data-animate>
       <span class="tech-pill">Kubernetes</span>
       <span class="tech-pill">HashiCorp Vault</span>
       <span class="tech-pill">GitHub Actions</span>
@@ -317,12 +385,12 @@
 <section id="contact">
   <div class="section-inner">
     <div class="contact-grid">
-      <div class="contact-info">
+      <div class="contact-info" data-animate>
         <span class="section-tag">Kontakt</span>
-        <h2>Lass uns reden.</h2>
+        <h2>Lassen Sie uns reden.</h2>
         <p>
           Erstes Gespräch kostenlos. Kein Verkaufsdruck –
-          ich höre zu, was du brauchst, und sage dir ehrlich ob und wie ich helfen kann.
+          ich höre zu, was Sie brauchen, und sage Ihnen ehrlich ob und wie ich helfen kann.
         </p>
         <div class="contact-details">
           <div class="contact-item">
@@ -340,7 +408,7 @@
         </div>
       </div>
 
-      <form id="contactForm">
+      <form id="contactForm" data-animate data-delay="1">
         <div class="form-grid">
           <div class="form-group">
             <label for="name">Name</label>
@@ -370,7 +438,7 @@
         </div>
         <div class="form-group">
           <label for="message">Nachricht</label>
-          <textarea id="message" name="message" placeholder="Kurze Beschreibung eurer Situation und was ihr braucht…" required></textarea>
+          <textarea id="message" name="message" placeholder="Kurze Beschreibung Ihrer Situation und was Sie benötigen…" required></textarea>
         </div>
         <button type="submit" class="btn-submit">Nachricht senden →</button>
       </form>
@@ -380,7 +448,7 @@
 
 <!-- ─── FOOTER ────────────────────────────────────────────────── -->
 <footer>
-  <p>&copy; 2026 ANTRP Consulting · <a href="mailto:hallo@antrp.dev">hallo@antrp.dev</a> · <a href="#">Impressum</a> · <a href="#">Datenschutz</a></p>
+  <p>&copy; 2026 ANTRP Consulting · <a href="mailto:hallo@antrp.dev">hallo@antrp.dev</a> · <a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></p>
 </footer>
 
 <script src="js/main.js"></script>

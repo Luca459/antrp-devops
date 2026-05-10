@@ -10,11 +10,11 @@ document.querySelectorAll('#navLinks a').forEach(link => {
   link.addEventListener('click', () => navLinks.classList.remove('open'));
 });
 
-// Smooth active nav highlight on scroll
+// Active nav highlight on scroll
 const sections = document.querySelectorAll('section[id]');
 const navItems = document.querySelectorAll('.nav-links a');
 
-const observer = new IntersectionObserver(entries => {
+const navObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       navItems.forEach(a => a.classList.remove('active'));
@@ -24,9 +24,21 @@ const observer = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.45 });
 
-sections.forEach(s => observer.observe(s));
+sections.forEach(s => navObserver.observe(s));
 
-// Contact form — simple client-side feedback
+// Scroll-in animations
+const animObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      animObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll('[data-animate]').forEach(el => animObserver.observe(el));
+
+// Contact form
 document.getElementById('contactForm').addEventListener('submit', function (e) {
   e.preventDefault();
   const btn = this.querySelector('.btn-submit');
