@@ -3,385 +3,471 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ANTRP Consulting – DevSecOps für Startups & KMU</title>
-  <meta name="description" content="Professionelles DevSecOps-Consulting für Startups und kleine Unternehmen. Kubernetes, CI/CD, Security, HashiCorp Vault, Cloud Native – pragmatisch und auf Augenhöhe.">
+  <title>dollack.devsecops — Sichere Infrastruktur ohne eigenes DevOps-Team</title>
+  <meta name="description" content="DevSecOps Consulting für Startups und KMU. Kubernetes, CI/CD, HashiCorp Vault, Security — pragmatisch und hands-on.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<!-- ─── NAV ──────────────────────────────────────────────────── -->
-<nav>
-  <a href="#hero" class="nav-logo">ANTRP<span>.</span>DevSecOps</a>
-  <ul class="nav-links" id="navLinks">
-    <li><a href="#services">Leistungen</a></li>
-    <li><a href="#approach">Vorgehen</a></li>
-    <li><a href="#target">Für wen</a></li>
-    <li><a href="#tech">Technologien</a></li>
-    <li><a href="#contact" class="nav-cta">Kontakt</a></li>
-  </ul>
-  <button class="nav-hamburger" id="hamburger" aria-label="Menü">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
+<div class="grain" aria-hidden="true"></div>
+<div class="cursor-light" id="cursorLight" aria-hidden="true"></div>
 
-<!-- ─── HERO ──────────────────────────────────────────────────── -->
-<section id="hero">
-  <div class="hero-grid"></div>
-  <div class="hero-glow"></div>
-  <div class="hero-content">
-    <div class="hero-badge">DevSecOps Consulting</div>
-    <h1>
-      Sichere Infrastruktur.<br>
-      <em>Ohne eigenes DevOps-Team.</em>
+<!-- ── HEADER ─────────────────────────────────────────────── -->
+<header class="site-header" id="top">
+  <div class="wrap hdr-inner">
+    <a href="#top" class="logo" aria-label="dollack.devsecops — Home">
+      <svg class="logo-mark" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+        <rect x="2" y="2" width="60" height="60" rx="14" stroke="var(--gold)" stroke-width="1.5" fill="rgba(8,8,8,.8)"/>
+        <rect x="14" y="14" width="5" height="36" rx="2.5" fill="var(--gold)"/>
+        <path d="M 19 14 Q 50 14 50 32 Q 50 50 19 50" stroke="var(--gold)" stroke-width="5" stroke-linecap="round" fill="none"/>
+        <circle cx="50" cy="50" r="3" fill="var(--gold-2)"/>
+      </svg>
+      <span class="wordmark">
+        <span class="wm-name" id="wm-name">dollack</span><span class="wm-dot" id="wm-dot">.</span><span class="wm-tag" id="wm-tag">devsecops</span>
+      </span>
+    </a>
+    <nav class="primary" id="nav">
+      <a href="#leistungen">Leistungen</a>
+      <a href="#vorgehen">Vorgehen</a>
+      <a href="#ueber">Über mich</a>
+      <a href="#kontakt">Kontakt</a>
+      <a href="#kontakt" class="nav-cta">Erstgespräch</a>
+    </nav>
+    <button class="menu-btn" aria-label="Menü öffnen" aria-expanded="false" id="menuBtn"><span></span></button>
+  </div>
+</header>
+
+<!-- ── HERO ───────────────────────────────────────────────── -->
+<section class="hero" id="hero">
+  <div class="hero-vlines" aria-hidden="true">
+    <div></div><div></div><div></div><div></div><div></div>
+  </div>
+  <div class="hero-bar-top" aria-hidden="true"></div>
+  <div class="hero-bar-bot" aria-hidden="true"></div>
+
+  <div class="wrap hero-content">
+    <div class="hero-badge reveal">
+      <span class="badge-pulse"></span>
+      DevSecOps Consulting · Deutschland
+    </div>
+
+    <h1 class="hero-title reveal" style="transition-delay:.07s">
+      Sichere<br>
+      Infrastruktur.<br>
+      <span class="hero-sub-line">Ohne eigenes
+        <span class="typed-wrap"><span id="typed"></span><span class="caret"></span></span>
+      </span>
     </h1>
-    <p class="hero-sub">
-      Ich bringe Enterprise-Level DevSecOps in dein Startup oder KMU –
-      pragmatisch, hands-on und so, dass dein Team am Ende selbst damit umgehen kann.
+
+    <p class="hero-lead reveal" style="transition-delay:.14s">
+      Ich bringe Enterprise-Level DevSecOps in Ihr Startup oder KMU —<br class="br-desk">
+      pragmatisch, hands-on und so, dass Ihr Team am Ende selbst damit umgehen kann.
     </p>
-    <div class="hero-actions">
-      <a href="#contact" class="btn-primary">Kostenloses Erstgespräch</a>
-      <a href="#services" class="btn-secondary">Leistungen ansehen</a>
+
+    <div class="hero-cta reveal" style="transition-delay:.21s">
+      <a href="#kontakt" class="btn btn-gold">
+        Kostenloses Erstgespräch
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+      <a href="#leistungen" class="btn btn-ghost">Leistungen ansehen</a>
     </div>
-    <div class="hero-stats">
-      <div class="stat-item">
-        <div class="stat-num">K8s</div>
-        <div class="stat-label">Kubernetes &amp; Cloud Native</div>
+
+    <div class="hero-stats reveal" style="transition-delay:.28s" id="stats">
+      <div class="hstat" data-target="10">
+        <div class="hstat-n"><span class="cnt">0</span>+</div>
+        <div class="hstat-l">Jahre Erfahrung</div>
       </div>
-      <div class="stat-item">
-        <div class="stat-num">0–1</div>
-        <div class="stat-label">Von Null zur Produktion</div>
+      <div class="hstat-sep"></div>
+      <div class="hstat" data-target="100">
+        <div class="hstat-n"><span class="cnt">0</span>%</div>
+        <div class="hstat-l">Knowledge Transfer</div>
       </div>
-      <div class="stat-item">
-        <div class="stat-num">Sec</div>
-        <div class="stat-label">Security by Design</div>
+      <div class="hstat-sep"></div>
+      <div class="hstat" data-target="24">
+        <div class="hstat-n"><span class="cnt">0</span>h</div>
+        <div class="hstat-l">Reaktionszeit</div>
+      </div>
+      <div class="hstat-sep"></div>
+      <div class="hstat">
+        <div class="hstat-n">0</div>
+        <div class="hstat-l">PowerPoint-Shows</div>
       </div>
     </div>
   </div>
+
+  <div class="scroll-hint" aria-hidden="true">
+    <div class="scroll-rail"><div class="scroll-bead"></div></div>
+    <span>Scroll</span>
+  </div>
 </section>
 
-<!-- ─── SERVICES ─────────────────────────────────────────────── -->
-<section id="services">
-  <div class="section-inner">
-    <span class="section-tag">Leistungen</span>
-    <h2>Was ich für dich tue</h2>
-    <p class="section-desc">
-      Von der ersten Kubernetes-Installation bis zur vollständig abgesicherten CI/CD-Pipeline –
-      maßgeschneidert für die Realität kleiner Teams.
-    </p>
-    <div class="services-grid">
+<!-- ── LEISTUNGEN ─────────────────────────────────────────── -->
+<section class="sec" id="leistungen">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Leistungen</div>
+      <h2>Was ich für Sie aufbaue,<br>härte und betreibe.</h2>
+      <p class="sec-sub">Vom ersten Cluster bis zur fertigen DevSecOps-Pipeline — alles aus einer Hand, mit klaren Ergebnissen.</p>
+    </div>
 
-      <div class="service-card">
-        <span class="service-icon">☸️</span>
+    <div class="svc-grid">
+
+      <article class="scard reveal" style="--a:#22d3ee">
+        <div class="scard-top"></div>
+        <div class="scard-icon"><i class="devicon-kubernetes-plain colored"></i></div>
         <h3>Kubernetes &amp; Cloud Native</h3>
-        <p>
-          Cluster-Aufbau, Hardening, Workload-Management und betriebssicherer Alltag –
-          on-prem oder in der Cloud. Inklusive CNAPP-Integration für Laufzeit-Security.
-        </p>
-        <div class="service-tags">
-          <span class="tag">Kubernetes</span>
-          <span class="tag">Helm</span>
-          <span class="tag">CNAPP</span>
-          <span class="tag">Network Policies</span>
+        <p>Cluster-Aufbau, Hardening und betriebssicherer Alltag — on-prem oder in der Cloud. Mit CNAPP-Integration für Laufzeit-Security.</p>
+        <div class="scard-tags">
+          <span>Kubernetes</span><span>Helm</span><span>CNAPP</span><span>Network Policies</span>
         </div>
-      </div>
+      </article>
 
-      <div class="service-card">
-        <span class="service-icon">🔐</span>
+      <article class="scard reveal" style="--a:#a78bfa;transition-delay:.05s">
+        <div class="scard-top"></div>
+        <div class="scard-icon"><i class="devicon-vault-original colored"></i></div>
         <h3>Secrets &amp; Zero-Trust Security</h3>
-        <p>
-          Sichere Secret-Verwaltung mit HashiCorp Vault, SSH Certificate Authority für
-          zertifikatsbasiertes Login – kein statisches Passwort bleibt übrig.
-        </p>
-        <div class="service-tags">
-          <span class="tag">HashiCorp Vault</span>
-          <span class="tag">SSH CA</span>
-          <span class="tag">PKI</span>
-          <span class="tag">Zero Trust</span>
+        <p>Sichere Secret-Verwaltung mit HashiCorp Vault und SSH Certificate Authority — kein statisches Passwort bleibt übrig.</p>
+        <div class="scard-tags">
+          <span>HashiCorp Vault</span><span>SSH CA</span><span>PKI</span><span>Zero Trust</span>
         </div>
-      </div>
+      </article>
 
-      <div class="service-card">
-        <span class="service-icon">⚙️</span>
-        <h3>CI/CD &amp; Automatisierung</h3>
-        <p>
-          Pipelines, die wirklich liefern: sichere Build-Chains, automatisierte Tests,
-          Container-Scanning und Deployments – in GitHub Actions oder GitLab CI/CD.
-        </p>
-        <div class="service-tags">
-          <span class="tag">GitHub Actions</span>
-          <span class="tag">GitLab CI/CD</span>
-          <span class="tag">SAST/DAST</span>
-          <span class="tag">Container Scanning</span>
+      <article class="scard reveal" style="--a:#34d399;transition-delay:.1s">
+        <div class="scard-top"></div>
+        <div class="scard-icon" style="gap:6px">
+          <i class="devicon-github-original"></i>
+          <i class="devicon-gitlab-plain colored"></i>
         </div>
-      </div>
+        <h3>CI/CD &amp; GitOps Pipelines</h3>
+        <p>Automatisierte Deployments mit ArgoCD, GitHub Actions und GitLab CI. Vom Commit zur Produktion in Minuten — sicher und nachvollziehbar.</p>
+        <div class="scard-tags">
+          <span>GitHub Actions</span><span>GitLab CI/CD</span><span>ArgoCD</span><span>SBOM</span>
+        </div>
+      </article>
 
-      <div class="service-card">
-        <span class="service-icon">🤖</span>
+      <article class="scard reveal" style="--a:#fbbf24;transition-delay:.15s">
+        <div class="scard-top"></div>
+        <div class="scard-icon" style="gap:6px">
+          <i class="devicon-ansible-plain colored"></i>
+          <i class="devicon-terraform-plain colored"></i>
+        </div>
         <h3>Infrastructure as Code</h3>
-        <p>
-          Reproduzierbare, versionierbare Infrastruktur mit Ansible –
-          Server-Provisioning, Konfigurationsmanagement und Compliance-Checks automatisiert.
-        </p>
-        <div class="service-tags">
-          <span class="tag">Ansible</span>
-          <span class="tag">Linux</span>
-          <span class="tag">IaC</span>
-          <span class="tag">Hardening</span>
+        <p>Terraform, Ansible — Ihre Infrastruktur reproduzierbar, versioniert und in 30 Minuten neu aufgebaut. Inkl. Disaster-Recovery-Plan.</p>
+        <div class="scard-tags">
+          <span>Ansible</span><span>Terraform</span><span>Linux</span><span>Hardening</span>
         </div>
-      </div>
+      </article>
 
-      <div class="service-card">
-        <span class="service-icon">📊</span>
-        <h3>Big Data &amp; Datenplattformen</h3>
-        <p>
-          Aufbau und Betrieb von Datenplattformen im Kubernetes-Umfeld –
-          skalierbar, observierbar und mit klaren Datenpipelines.
-        </p>
-        <div class="service-tags">
-          <span class="tag">Big Data</span>
-          <span class="tag">Spark</span>
-          <span class="tag">Kafka</span>
-          <span class="tag">Monitoring</span>
+      <article class="scard reveal" style="--a:#f87171;transition-delay:.2s">
+        <div class="scard-top"></div>
+        <div class="scard-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         </div>
-      </div>
-
-      <div class="service-card">
-        <span class="service-icon">🐍</span>
-        <h3>Python-Automatisierung &amp; Tooling</h3>
-        <p>
-          Custom-Scripts, Operator-Logik, Glue-Code und CLI-Tools –
-          alles was deinen Betrieb schlanker macht und manuelle Arbeit eliminiert.
-        </p>
-        <div class="service-tags">
-          <span class="tag">Python</span>
-          <span class="tag">Automation</span>
-          <span class="tag">APIs</span>
-          <span class="tag">Operator SDK</span>
-        </div>
-      </div>
-
-      <div class="service-card">
-        <span class="service-icon">🛡️</span>
         <h3>DevSecOps Enablement</h3>
-        <p>
-          Ich mache nur für dich – ich mache es <em>mit</em> dir. Dein Team lernt
-          dabei und kann die Systeme danach selbst betreiben. Kein Vendor Lock-in.
-        </p>
-        <div class="service-tags">
-          <span class="tag">Workshops</span>
-          <span class="tag">Knowledge Transfer</span>
-          <span class="tag">Dokumentation</span>
+        <p>Ich mache es nicht nur für Sie — ich mache es <em>mit</em> Ihnen. Ihr Team lernt dabei und kann danach selbst betreiben. Kein Vendor Lock-in.</p>
+        <div class="scard-tags">
+          <span>Workshops</span><span>Pairing</span><span>Knowledge Transfer</span>
         </div>
-      </div>
+      </article>
 
-      <div class="service-card">
-        <span class="service-icon">🔍</span>
+      <article class="scard reveal" style="--a:#fb923c;transition-delay:.25s">
+        <div class="scard-top"></div>
+        <div class="scard-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        </div>
         <h3>Security Audit &amp; Assessment</h3>
-        <p>
-          Wo stehst du heute? Cluster-Audit, Pipeline-Review, Secret-Scan –
-          du bekommst einen klaren Bericht mit priorisierten Maßnahmen.
-        </p>
-        <div class="service-tags">
-          <span class="tag">Audit</span>
-          <span class="tag">CIS Benchmarks</span>
-          <span class="tag">Threat Modeling</span>
+        <p>Cluster-Audit, Pipeline-Review, Secret-Scan — Sie bekommen einen klaren Bericht mit priorisierten Maßnahmen.</p>
+        <div class="scard-tags">
+          <span>Audit</span><span>CIS Benchmarks</span><span>Threat Modeling</span>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── VORGEHEN ───────────────────────────────────────────── -->
+<section class="sec alt" id="vorgehen">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Vorgehen</div>
+      <h2>Wie ich arbeite.</h2>
+      <p class="sec-sub">Pragmatisch, transparent und immer mit dem Ziel, dass Ihr Team am Ende eigenständig ist.</p>
+    </div>
+
+    <div class="pipeline reveal">
+      <div class="pnode">
+        <div class="pnode-ico">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+        </div>
+        <div class="pnode-lbl">Code</div>
+        <div class="pnode-sub">Git · MRs</div>
+      </div>
+      <div class="parrow">→</div>
+      <div class="pnode">
+        <div class="pnode-ico">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+        <div class="pnode-lbl">Build</div>
+        <div class="pnode-sub">CI · SBOM</div>
+      </div>
+      <div class="parrow">→</div>
+      <div class="pnode">
+        <div class="pnode-ico">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        </div>
+        <div class="pnode-lbl">Scan</div>
+        <div class="pnode-sub">SAST · DAST</div>
+      </div>
+      <div class="parrow">→</div>
+      <div class="pnode">
+        <div class="pnode-ico">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 14.9A7 7 0 1 1 15.7 8h1.8a4.5 4.5 0 0 1 2.5 8.2"/><path d="M12 12v9m-4-4 4 4 4-4"/></svg>
+        </div>
+        <div class="pnode-lbl">Deploy</div>
+        <div class="pnode-sub">GitOps · ArgoCD</div>
+      </div>
+      <div class="parrow">→</div>
+      <div class="pnode">
+        <div class="pnode-ico">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+        </div>
+        <div class="pnode-lbl">Observe</div>
+        <div class="pnode-sub">Loki · Grafana</div>
+      </div>
+    </div>
+
+    <div class="steps">
+      <div class="step reveal">
+        <div class="step-n">01</div>
+        <h4>Verstehen</h4>
+        <p>Wo stehen Sie heute, was wollen Sie morgen erreichen? Kostenloses Erstgespräch — keine PowerPoint-Show.</p>
+      </div>
+      <div class="step reveal" style="transition-delay:.08s">
+        <div class="step-n">02</div>
+        <h4>Analysieren</h4>
+        <p>Kompakter Audit Ihrer Umgebung. Sie bekommen einen Bericht mit Quick-Wins und langfristigen Schritten.</p>
+      </div>
+      <div class="step reveal" style="transition-delay:.16s">
+        <div class="step-n">03</div>
+        <h4>Umsetzen</h4>
+        <p>Hands-on Implementierung in Sprints. Live-Pairing mit Ihrem Team — jeder Schritt ist nachvollziehbar.</p>
+      </div>
+      <div class="step reveal" style="transition-delay:.24s">
+        <div class="step-n">04</div>
+        <h4>Übergeben</h4>
+        <p>Dokumentation, Runbooks, Workshops. Ihr Team übernimmt den Betrieb. Ich bleibe optional als Backup.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ÜBER MICH ──────────────────────────────────────────── -->
+<section class="sec" id="ueber">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <div class="eyebrow">Über mich</div>
+        <h2>Operator zuerst.<br>Berater dann.</h2>
+        <p>Ich habe die letzten Jahre in Enterprise-Umgebungen Cluster gehärtet, Pipelines gebaut und Teams ausgebildet. Was dort Standard ist, fehlt KMUs und Startups oft komplett — das ist mein Ansatzpunkt.</p>
+        <p style="margin-top:16px">Mein Anspruch: <strong>kein Berater-Geschwätz</strong>. Ich liefere Code, Konfiguration und Dokumentation. Wenn ich gehe, läuft Ihre Plattform — und Ihr Team weiß, wie und warum.</p>
+        <a href="#kontakt" class="btn btn-gold" style="margin-top:28px;display:inline-flex">
+          Anfragen
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <div class="terminal reveal" style="transition-delay:.14s">
+        <div class="term-bar">
+          <div class="term-dots"><span></span><span></span><span></span></div>
+          <span class="term-title">~/projects/your-platform</span>
+        </div>
+        <div class="term-body">
+          <div class="tl"><span class="tp">$</span> <span class="tk">kubectl</span> get nodes</div>
+          <div class="tl"><span class="tok">✓</span> <span class="tc">3 nodes ready · 0 evictions in 90 days</span></div>
+          <div class="tl"><span class="tp">$</span> <span class="tk">vault</span> status</div>
+          <div class="tl"><span class="tok">✓</span> <span class="tc">unsealed · ha-active · auto-unseal via KMS</span></div>
+          <div class="tl"><span class="tp">$</span> <span class="tk">argocd</span> app sync prod</div>
+          <div class="tl"><span class="tok">✓</span> <span class="tc">17 apps · in-sync · last drift: 0s</span></div>
+          <div class="tl"><span class="tp">$</span> <span class="tk">trivy</span> image registry/api:latest</div>
+          <div class="tl"><span class="tok">✓</span> <span class="tc">no critical CVEs · SBOM signed (cosign)</span></div>
+          <div class="tl"><span class="tp">$</span> <span class="tk">echo</span> <span class="ts">"team handover complete."</span></div>
+          <div class="tl tl-cur">&nbsp;</div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- ─── APPROACH ──────────────────────────────────────────────── -->
-<section id="approach">
-  <div class="section-inner">
-    <span class="section-tag">Vorgehen</span>
-    <h2>Wie ich arbeite</h2>
-    <p class="section-desc">
-      Kein Overhead, kein Bullshit. Pragmatisch, transparent und immer mit dem Ziel,
-      dass dein Team am Ende eigenständig ist.
-    </p>
-    <div class="approach-steps">
-      <div class="step">
-        <div class="step-num">01</div>
-        <h3>Verstehen</h3>
-        <p>Wo steht ihr heute, was wollt ihr morgen erreichen? Kostenloses Erstgespräch, keine PowerPoint-Show.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">02</div>
-        <h3>Analysieren</h3>
-        <p>Ich schaue mir eure Infrastruktur, Pipelines und Security-Posture an und identifiziere die echten Engpässe.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">03</div>
-        <h3>Umsetzen</h3>
-        <p>Hands-on Implementierung – in eurem Repo, mit eurem Team. Klar priorisiert nach Impact.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">04</div>
-        <h3>Übergeben</h3>
-        <p>Dokumentation, Wissenstransfer, Schulung. Ihr seid danach nicht abhängig von mir.</p>
-      </div>
+<!-- ── TECH ───────────────────────────────────────────────── -->
+<section class="sec-tech" id="tech">
+  <div class="wrap tech-head">
+    <div class="eyebrow reveal">Technologien</div>
+    <h2 class="reveal">Womit ich täglich arbeite.</h2>
+    <p class="sec-sub reveal">Kein Hype-Stack — bewährte Tools, die in Produktion funktionieren.</p>
+  </div>
+  <div class="marquee-wrap">
+    <div class="mtrack">
+      <span class="tpill">Kubernetes</span><span class="tpill">HashiCorp Vault</span>
+      <span class="tpill">GitHub Actions</span><span class="tpill">GitLab CI/CD</span>
+      <span class="tpill">Ansible</span><span class="tpill">Python</span>
+      <span class="tpill">Linux</span><span class="tpill">SSH CA</span>
+      <span class="tpill">CNAPP</span><span class="tpill">Helm</span><span class="tpill">Terraform</span>
+      <span class="tpill">Kubernetes</span><span class="tpill">HashiCorp Vault</span>
+      <span class="tpill">GitHub Actions</span><span class="tpill">GitLab CI/CD</span>
+      <span class="tpill">Ansible</span><span class="tpill">Python</span>
+      <span class="tpill">Linux</span><span class="tpill">SSH CA</span>
+      <span class="tpill">CNAPP</span><span class="tpill">Helm</span><span class="tpill">Terraform</span>
+    </div>
+    <div class="mtrack rev">
+      <span class="tpill">ArgoCD</span><span class="tpill">Terraform</span>
+      <span class="tpill">Prometheus</span><span class="tpill">Grafana</span>
+      <span class="tpill">Docker</span><span class="tpill">OPA / Kyverno</span>
+      <span class="tpill">Trivy</span><span class="tpill">Falco</span>
+      <span class="tpill">K3s</span><span class="tpill">Istio</span>
+      <span class="tpill">ArgoCD</span><span class="tpill">Terraform</span>
+      <span class="tpill">Prometheus</span><span class="tpill">Grafana</span>
+      <span class="tpill">Docker</span><span class="tpill">OPA / Kyverno</span>
+      <span class="tpill">Trivy</span><span class="tpill">Falco</span>
+      <span class="tpill">K3s</span><span class="tpill">Istio</span>
     </div>
   </div>
 </section>
 
-<!-- ─── TARGET ────────────────────────────────────────────────── -->
-<section id="target">
-  <div class="section-inner">
-    <span class="section-tag">Für wen</span>
-    <h2>Genau das Richtige, wenn…</h2>
-    <div class="target-grid">
-      <ul class="target-list">
-        <li>
-          <span class="target-icon">🚀</span>
-          <div>
-            <h4>Du ein Startup bist</h4>
-            <p>…das schnell skalieren will, aber kein Budget für ein ganzes DevOps-Team hat.</p>
-          </div>
-        </li>
-        <li>
-          <span class="target-icon">🏢</span>
-          <div>
-            <h4>Du ein KMU bist</h4>
-            <p>…das Kubernetes einsetzen will oder schon einsetzt, aber das Betriebswissen fehlt.</p>
-          </div>
-        </li>
-        <li>
-          <span class="target-icon">🔒</span>
-          <div>
-            <h4>Security drängt</h4>
-            <p>…ein Audit steht an, Secrets liegen noch in Git, oder du weißt nicht wo du anfangen sollst.</p>
-          </div>
-        </li>
-        <li>
-          <span class="target-icon">⚡</span>
-          <div>
-            <h4>Deployment schmerzt</h4>
-            <p>…Releases sind manuell, fehleranfällig und stressig. Das muss nicht so sein.</p>
-          </div>
-        </li>
-      </ul>
-      <div class="target-callout">
-        <h3>Enablement statt Abhängigkeit</h3>
-        <p>
-          Viele Consultants bauen Systeme, die nur sie selbst verstehen.
-          Ich baue Systeme, die dein Team selbst betreiben kann –
-          und erkläre dabei jeden Schritt. Das ist mein Versprechen.
-        </p>
-        <ul class="check-list">
-          <li>Keine unnötigen Komplexität</li>
-          <li>Open Source first – kein Vendor Lock-in</li>
-          <li>Dokumentation gehört zum Lieferumfang</li>
-          <li>Dein Team versteht was läuft</li>
-          <li>Pragmatische Lösungen statt akademischer Theorie</li>
-        </ul>
-      </div>
+<!-- ── KONTAKT ────────────────────────────────────────────── -->
+<section class="sec alt" id="kontakt">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Kontakt</div>
+      <h2>Lassen Sie uns reden.</h2>
+      <p class="sec-sub">Erstes Gespräch kostenlos und unverbindlich. Antwort innerhalb von 24 Stunden.</p>
     </div>
-  </div>
-</section>
-
-<!-- ─── TECH ──────────────────────────────────────────────────── -->
-<section id="tech">
-  <div class="section-inner">
-    <span class="section-tag">Technologien</span>
-    <h2>Womit ich täglich arbeite</h2>
-    <p class="section-desc">Kein Hype-Stack – bewährte Tools, die in Produktion funktionieren.</p>
-    <div class="tech-logos">
-      <span class="tech-pill">Kubernetes</span>
-      <span class="tech-pill">HashiCorp Vault</span>
-      <span class="tech-pill">GitHub Actions</span>
-      <span class="tech-pill">GitLab CI/CD</span>
-      <span class="tech-pill">Ansible</span>
-      <span class="tech-pill">Python</span>
-      <span class="tech-pill">Linux</span>
-      <span class="tech-pill">SSH CA</span>
-      <span class="tech-pill">CNAPP</span>
-      <span class="tech-pill">Helm</span>
-      <span class="tech-pill">Terraform</span>
-      <span class="tech-pill">Prometheus</span>
-      <span class="tech-pill">Grafana</span>
-      <span class="tech-pill">Docker</span>
-      <span class="tech-pill">ArgoCD</span>
-      <span class="tech-pill">OPA / Kyverno</span>
-      <span class="tech-pill">Trivy</span>
-      <span class="tech-pill">Falco</span>
-    </div>
-  </div>
-</section>
-
-<!-- ─── CONTACT ───────────────────────────────────────────────── -->
-<section id="contact">
-  <div class="section-inner">
     <div class="contact-grid">
       <div class="contact-info">
-        <span class="section-tag">Kontakt</span>
-        <h2>Lass uns reden.</h2>
-        <p>
-          Erstes Gespräch kostenlos. Kein Verkaufsdruck –
-          ich höre zu, was du brauchst, und sage dir ehrlich ob und wie ich helfen kann.
-        </p>
-        <div class="contact-details">
-          <div class="contact-item">
-            <div class="contact-item-icon">✉</div>
-            <span>hallo@antrp.dev</span>
+        <div class="icard reveal">
+          <div class="icard-ico">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
           </div>
-          <div class="contact-item">
-            <div class="contact-item-icon">📍</div>
-            <span>Remote · DACH-Region</span>
+          <div><div class="icard-lbl">E-Mail</div><a class="icard-val" href="mailto:hallo@dollack.dev">hallo@dollack.dev</a></div>
+        </div>
+        <div class="icard reveal" style="transition-delay:.06s">
+          <div class="icard-ico">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.19 12 19.79 19.79 0 0 1 1.12 3.38 2 2 0 0 1 3.11 1h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92z"/></svg>
           </div>
-          <div class="contact-item">
-            <div class="contact-item-icon">🕐</div>
-            <span>Antwort innerhalb von 24h</span>
+          <div><div class="icard-lbl">Telefon</div><a class="icard-val" href="tel:+4900000000">+49 000 000 000</a></div>
+        </div>
+        <div class="icard reveal" style="transition-delay:.12s">
+          <div class="icard-ico">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/></svg>
           </div>
+          <div><div class="icard-lbl">Standort</div><div class="icard-val">Deutschland · Remote &amp; Vor-Ort</div></div>
+        </div>
+        <div class="icard reveal" style="transition-delay:.18s">
+          <div class="icard-ico">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          </div>
+          <div><div class="icard-lbl">Verfügbarkeit</div><div class="icard-val">Q2/Q3 2026 · Anfragen ab sofort</div></div>
         </div>
       </div>
 
-      <form id="contactForm">
-        <div class="form-grid">
-          <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" placeholder="Max Mustermann" required>
+      <form class="contact-form" id="contactForm">
+        <div class="form-row">
+          <div class="field">
+            <label for="f-name">Name</label>
+            <input id="f-name" name="name" type="text" placeholder="Max Mustermann" required>
           </div>
-          <div class="form-group">
-            <label for="company">Unternehmen</label>
-            <input type="text" id="company" name="company" placeholder="Acme GmbH">
+          <div class="field">
+            <label for="f-company">Unternehmen</label>
+            <input id="f-company" name="company" type="text" placeholder="Acme GmbH">
           </div>
         </div>
-        <div class="form-group">
-          <label for="email">E-Mail</label>
-          <input type="email" id="email" name="email" placeholder="max@acme.de" required>
+        <div class="field">
+          <label for="f-email">E-Mail</label>
+          <input id="f-email" name="email" type="email" placeholder="max@acme.de" required>
         </div>
-        <div class="form-group">
-          <label for="topic">Thema</label>
-          <select id="topic" name="topic">
+        <div class="field">
+          <label for="f-topic">Thema</label>
+          <select id="f-topic" name="topic" required>
             <option value="">Bitte wählen…</option>
-            <option>Kubernetes Setup &amp; Betrieb</option>
-            <option>CI/CD Pipeline</option>
-            <option>Secrets &amp; Security</option>
-            <option>Big Data Plattform</option>
+            <option>Kubernetes &amp; Cloud Native</option>
+            <option>Secrets &amp; Zero Trust</option>
+            <option>CI/CD &amp; GitOps</option>
+            <option>Infrastructure as Code</option>
             <option>Security Audit</option>
             <option>DevSecOps Enablement</option>
             <option>Sonstiges</option>
           </select>
         </div>
-        <div class="form-group">
-          <label for="message">Nachricht</label>
-          <textarea id="message" name="message" placeholder="Kurze Beschreibung eurer Situation und was ihr braucht…" required></textarea>
+        <div class="field">
+          <label for="f-msg">Nachricht</label>
+          <textarea id="f-msg" name="message" placeholder="Kurze Beschreibung Ihrer Situation und was Sie benötigen…" required></textarea>
         </div>
-        <button type="submit" class="btn-submit">Nachricht senden →</button>
+        <div class="form-footer">
+          <button type="submit" class="btn btn-gold">
+            Nachricht senden
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </button>
+          <span class="form-ok" id="formSuccess">✓ Nachricht eingegangen — ich melde mich.</span>
+        </div>
       </form>
     </div>
   </div>
 </section>
 
-<!-- ─── FOOTER ────────────────────────────────────────────────── -->
-<footer>
-  <p>&copy; 2026 ANTRP Consulting · <a href="mailto:hallo@antrp.dev">hallo@antrp.dev</a> · <a href="#">Impressum</a> · <a href="#">Datenschutz</a></p>
+<!-- ── FOOTER ─────────────────────────────────────────────── -->
+<footer class="site-footer">
+  <div class="wrap ft-inner">
+    <a href="#top" class="logo" style="opacity:.75" aria-label="dollack.devsecops">
+      <svg class="logo-mark" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+        <rect x="2" y="2" width="60" height="60" rx="14" stroke="var(--gold)" stroke-width="1.5" fill="rgba(8,8,8,.6)"/>
+        <rect x="14" y="14" width="5" height="36" rx="2.5" fill="var(--gold)"/>
+        <path d="M 19 14 Q 50 14 50 32 Q 50 50 19 50" stroke="var(--gold)" stroke-width="5" stroke-linecap="round" fill="none"/>
+        <circle cx="50" cy="50" r="3" fill="var(--gold-2)"/>
+      </svg>
+      <span class="wordmark">
+        <span class="wm-name">dollack</span><span class="wm-dot">.</span><span class="wm-tag">devsecops</span>
+      </span>
+    </a>
+    <div class="ft-legal">
+      <span>© <span id="year"></span> dollack.devsecops</span>
+      <a href="mailto:hallo@dollack.dev">hallo@dollack.dev</a>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+    </div>
+  </div>
 </footer>
+
+<!-- ── TWEAKS ─────────────────────────────────────────────── -->
+<button class="tweaks-toggle" id="tweaksToggle" aria-label="Branding-Tweaks">
+  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+</button>
+<aside class="tweaks" id="tweaks">
+  <h5>Branding <button class="tw-close" id="tweaksClose" aria-label="Schließen">×</button></h5>
+  <div class="tw-group">
+    <div class="tw-lbl">Markenname</div>
+    <div class="tw-pills" id="brandPills">
+      <button class="pill active" data-name="dollack" data-tag="devsecops" data-dot=".">dollack.devsecops</button>
+      <button class="pill" data-name="DOLLACK" data-tag="SEC" data-dot="·">DOLLACK · SEC</button>
+      <button class="pill" data-name="DLK" data-tag="OPS" data-dot="/">DLK / OPS</button>
+      <button class="pill" data-name="Dollack" data-tag="Consulting" data-dot=" ">Dollack Consulting</button>
+    </div>
+  </div>
+  <div class="tw-group">
+    <div class="tw-lbl">Akzentfarbe</div>
+    <div class="tw-swatches" id="palettes">
+      <button class="sw active" data-c1="#C8A843" data-c2="#D4BA6A" title="Gold" style="background:#C8A843"></button>
+      <button class="sw" data-c1="#22d3ee" data-c2="#38bdf8" title="Cyan" style="background:#22d3ee"></button>
+      <button class="sw" data-c1="#a78bfa" data-c2="#c4b5fd" title="Violet" style="background:#a78bfa"></button>
+      <button class="sw" data-c1="#34d399" data-c2="#6ee7b7" title="Mint" style="background:#34d399"></button>
+      <button class="sw" data-c1="#f87171" data-c2="#fca5a5" title="Red" style="background:#f87171"></button>
+    </div>
+  </div>
+  <p class="tw-note">Seite ändert sich live.</p>
+</aside>
 
 <script src="js/main.js"></script>
 </body>
