@@ -21,9 +21,17 @@ nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
   menuBtn.setAttribute('aria-expanded', 'false');
 }));
 
-// ── Scroll direction tracking (for replay-on-scroll-up) ───────
-let scrollDir = 'down';
-let lastY = window.scrollY;
+// ── Cursor ambient light ──────────────────────────────────────
+const cursorLight = document.getElementById('cursorLight');
+if (cursorLight) {
+  document.addEventListener('mousemove', e => {
+    cursorLight.style.left = e.clientX + 'px';
+    cursorLight.style.top  = e.clientY + 'px';
+  }, { passive: true });
+}
+
+// ── Scroll direction tracking ─────────────────────────────────
+let scrollDir = 'down', lastY = window.scrollY;
 window.addEventListener('scroll', () => {
   scrollDir = window.scrollY >= lastY ? 'down' : 'up';
   lastY = window.scrollY;
@@ -45,8 +53,8 @@ requestAnimationFrame(() => {
 });
 
 // ── Typed hero animation ──────────────────────────────────────
-const phrases  = ['DevOps-Team.', 'SRE-Abteilung.', 'Security-Crew.', 'Vendor-Lock.'];
-const typedEl  = document.getElementById('typed');
+const phrases = ['DevOps-Team.', 'SRE-Abteilung.', 'Security-Crew.', 'Vendor-Lock.'];
+const typedEl = document.getElementById('typed');
 if (typedEl) {
   let phraseIdx = 0, charIdx = 0, deleting = false;
   function tick() {
@@ -86,23 +94,14 @@ const cntIO = new IntersectionObserver(entries => {
     cntIO.unobserve(el);
   });
 }, { threshold: 0.4 });
-document.querySelectorAll('#stats .stat[data-target]').forEach(s => cntIO.observe(s));
+document.querySelectorAll('#stats .hstat[data-target]').forEach(s => cntIO.observe(s));
 
 // ── Card mouse spotlight ──────────────────────────────────────
-document.querySelectorAll('.card').forEach(el => {
+document.querySelectorAll('.scard').forEach(el => {
   el.addEventListener('mousemove', e => {
     const r = el.getBoundingClientRect();
     el.style.setProperty('--cx', ((e.clientX - r.left) / r.width  * 100) + '%');
     el.style.setProperty('--cy', ((e.clientY - r.top)  / r.height * 100) + '%');
-  });
-});
-
-// ── Stat hover spotlight ──────────────────────────────────────
-document.querySelectorAll('.stat').forEach(el => {
-  el.addEventListener('mousemove', e => {
-    const r = el.getBoundingClientRect();
-    el.style.setProperty('--mx', ((e.clientX - r.left) / r.width  * 100) + '%');
-    el.style.setProperty('--my', ((e.clientY - r.top)  / r.height * 100) + '%');
   });
 });
 
@@ -119,7 +118,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 // ── Contact form → backend POST ───────────────────────────────
 document.getElementById('contactForm').addEventListener('submit', async function (e) {
   e.preventDefault();
-  const btn     = this.querySelector('.btn-primary');
+  const btn     = this.querySelector('.btn-gold');
   const success = document.getElementById('formSuccess');
   const orig    = btn.innerHTML;
 
@@ -136,8 +135,9 @@ document.getElementById('contactForm').addEventListener('submit', async function
     btn.disabled  = false;
   } catch {
     btn.innerHTML = 'Fehler – bitte direkt per E-Mail';
-    btn.style.background = 'linear-gradient(135deg,#ef4444,#dc2626)';
-    setTimeout(() => { btn.innerHTML = orig; btn.style.background = ''; btn.disabled = false; }, 4000);
+    btn.style.background = '#7f1d1d';
+    btn.style.color = '#fca5a5';
+    setTimeout(() => { btn.innerHTML = orig; btn.style.background = ''; btn.style.color = ''; btn.disabled = false; }, 4000);
   }
 });
 
@@ -162,8 +162,14 @@ document.querySelectorAll('#palettes .sw').forEach(s => {
   s.addEventListener('click', () => {
     document.querySelectorAll('#palettes .sw').forEach(x => x.classList.remove('active'));
     s.classList.add('active');
-    document.documentElement.style.setProperty('--brand-1', s.dataset.c1);
-    document.documentElement.style.setProperty('--brand-2', s.dataset.c2);
-    document.documentElement.style.setProperty('--brand-3', s.dataset.c3);
+    const c1 = s.dataset.c1, c2 = s.dataset.c2;
+    document.documentElement.style.setProperty('--gold',   c1);
+    document.documentElement.style.setProperty('--gold-2', c2);
+    const r = parseInt(c1.slice(1,3), 16);
+    const g = parseInt(c1.slice(3,5), 16);
+    const b = parseInt(c1.slice(5,7), 16);
+    document.documentElement.style.setProperty('--gold-dim', `rgba(${r},${g},${b},.1)`);
+    document.documentElement.style.setProperty('--gold-bd',  `rgba(${r},${g},${b},.22)`);
+    document.documentElement.style.setProperty('--gold-t',   `rgba(${r},${g},${b},.9)`);
   });
 });
