@@ -1,17 +1,43 @@
 'use strict';
 
-// ── Year ──────────────────────────────────────────────────────
+// ── Year ──────────────────────────────────────────────────
 document.getElementById('year').textContent = new Date().getFullYear();
 
-// ── Sticky nav ────────────────────────────────────────────────
+// ── Film grain (canvas) ───────────────────────────────────
+const grainCanvas = document.getElementById('grain');
+const grainCtx    = grainCanvas.getContext('2d');
+let grainW = 0, grainH = 0;
+
+function resizeGrain() {
+  grainW = grainCanvas.width  = window.innerWidth;
+  grainH = grainCanvas.height = window.innerHeight;
+}
+resizeGrain();
+window.addEventListener('resize', resizeGrain, { passive: true });
+
+function drawGrain() {
+  const img  = grainCtx.createImageData(grainW, grainH);
+  const data = img.data;
+  for (let i = 0; i < data.length; i += 4) {
+    const v = (Math.random() * 255) | 0;
+    data[i] = data[i+1] = data[i+2] = v;
+    data[i+3] = 28;
+  }
+  grainCtx.putImageData(img, 0, 0);
+  requestAnimationFrame(drawGrain);
+}
+drawGrain();
+
+// ── Sticky nav ────────────────────────────────────────────
 const topNav = document.querySelector('.top-nav');
 const onScroll = () => topNav.classList.toggle('scrolled', window.scrollY > 10);
 window.addEventListener('scroll', onScroll, { passive: true });
 onScroll();
 
-// ── Mobile menu ───────────────────────────────────────────────
-const menuBtn  = document.getElementById('menuBtn');
-const mainNav  = document.getElementById('mainNav');
+// ── Mobile menu ───────────────────────────────────────────
+const menuBtn = document.getElementById('menuBtn');
+const mainNav = document.getElementById('mainNav');
+
 menuBtn.addEventListener('click', () => {
   const open = mainNav.classList.toggle('open');
   menuBtn.setAttribute('aria-expanded', String(open));
@@ -21,7 +47,7 @@ mainNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
   menuBtn.setAttribute('aria-expanded', 'false');
 }));
 
-// ── Scroll progress bar ───────────────────────────────────────
+// ── Scroll progress ───────────────────────────────────────
 const progressFill = document.getElementById('progressFill');
 function updateProgress() {
   const total = document.documentElement.scrollHeight - window.innerHeight;
@@ -31,9 +57,10 @@ function updateProgress() {
 window.addEventListener('scroll', updateProgress, { passive: true });
 updateProgress();
 
-// ── Scene nav dots ────────────────────────────────────────────
-const scenes  = document.querySelectorAll('.scene[data-scene]');
-const dots    = document.querySelectorAll('.sn-dot');
+// ── Scene nav dots ────────────────────────────────────────
+const scenes = document.querySelectorAll('.scene[data-scene]');
+const dots   = document.querySelectorAll('.sn-dot');
+
 const sceneIO = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -41,18 +68,25 @@ const sceneIO = new IntersectionObserver(entries => {
       dots.forEach((d, i) => d.classList.toggle('active', String(i) === idx));
     }
   });
-}, { threshold: 0.4 });
+}, { threshold: 0.35 });
 scenes.forEach(s => sceneIO.observe(s));
 
-// ── Animation triggers ────────────────────────────────────────
+dots.forEach(dot => {
+  dot.addEventListener('click', () => {
+    const idx = dot.dataset.scene;
+    const target = document.querySelector(`.scene[data-scene="${idx}"]`);
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+
+// ── Animation triggers ────────────────────────────────────
 let lastY = window.scrollY, scrollDir = 'down';
 window.addEventListener('scroll', () => {
   scrollDir = window.scrollY >= lastY ? 'down' : 'up';
   lastY = window.scrollY;
 }, { passive: true });
 
-const animEls = '[class*="anim-"]';
-const animIO  = new IntersectionObserver(entries => {
+const animIO = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if (e.isIntersecting) {
       e.target.classList.add('in');
@@ -63,18 +97,18 @@ const animIO  = new IntersectionObserver(entries => {
 }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
 
 requestAnimationFrame(() => {
-  document.querySelectorAll(animEls).forEach(el => animIO.observe(el));
+  document.querySelectorAll('[class*="anim-"]').forEach(el => animIO.observe(el));
 });
 
-// ── Parallax hero grid ────────────────────────────────────────
+// ── Parallax hero grid ────────────────────────────────────
 const heroGrid = document.getElementById('heroGrid');
 if (heroGrid) {
   window.addEventListener('scroll', () => {
-    heroGrid.style.transform = `translateY(${window.scrollY * 0.25}px)`;
+    heroGrid.style.transform = `translateY(${window.scrollY * 0.2}px)`;
   }, { passive: true });
 }
 
-// ── Typed animation ───────────────────────────────────────────
+// ── Typed animation ───────────────────────────────────────
 const phrases = ['DevOps-Team.', 'SRE-Abteilung.', 'Security-Crew.', 'Vendor-Lock.'];
 const typedEl = document.getElementById('typed');
 if (typedEl) {
@@ -95,7 +129,7 @@ if (typedEl) {
   setTimeout(tick, 900);
 }
 
-// ── Counter animations ────────────────────────────────────────
+// ── Counter animations ────────────────────────────────────
 const cntIO = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if (!e.isIntersecting) return;
@@ -114,9 +148,9 @@ const cntIO = new IntersectionObserver(entries => {
     cntIO.unobserve(el);
   });
 }, { threshold: 0.5 });
-document.querySelectorAll('.nb[data-target], .hs[data-target]').forEach(el => cntIO.observe(el));
+document.querySelectorAll('.nb[data-target]').forEach(el => cntIO.observe(el));
 
-// ── Smooth scroll ─────────────────────────────────────────────
+// ── Smooth scroll ─────────────────────────────────────────
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
     const id = a.getAttribute('href');
@@ -126,7 +160,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   });
 });
 
-// ── Contact form ──────────────────────────────────────────────
+// ── Contact form ──────────────────────────────────────────
 document.getElementById('contactForm').addEventListener('submit', async function (e) {
   e.preventDefault();
   const btn  = this.querySelector('.btn-gold');
@@ -149,15 +183,16 @@ document.getElementById('contactForm').addEventListener('submit', async function
   }
 });
 
-// ── Tweaks panel ──────────────────────────────────────────────
+// ── Tweaks panel ──────────────────────────────────────────
 const tweaks = document.getElementById('tweaks');
 document.getElementById('tweaksToggle').addEventListener('click', () => tweaks.classList.add('open'));
 document.getElementById('tweaksClose').addEventListener('click',  () => tweaks.classList.remove('open'));
 
 document.querySelectorAll('#brandPills .pill').forEach(p => {
   p.addEventListener('click', () => {
-    document.querySelectorAll('#brandPills .pill').forEach(x => x.classList.remove('active'));
+    document.querySelectorAll('#brandPills .pill').forEach(x => { x.classList.remove('active'); x.setAttribute('aria-pressed', 'false'); });
     p.classList.add('active');
+    p.setAttribute('aria-pressed', 'true');
     const { name, tag, dot } = p.dataset;
     document.querySelectorAll('.wm-name').forEach(el => el.textContent = name);
     document.querySelectorAll('.wm-tag').forEach(el => el.textContent = tag);
@@ -168,14 +203,17 @@ document.querySelectorAll('#brandPills .pill').forEach(p => {
 
 document.querySelectorAll('#palettes .sw').forEach(s => {
   s.addEventListener('click', () => {
-    document.querySelectorAll('#palettes .sw').forEach(x => x.classList.remove('active'));
+    document.querySelectorAll('#palettes .sw').forEach(x => { x.classList.remove('active'); x.setAttribute('aria-pressed', 'false'); });
     s.classList.add('active');
+    s.setAttribute('aria-pressed', 'true');
     const [c1, c2] = [s.dataset.c1, s.dataset.c2];
-    const r = parseInt(c1.slice(1,3),16), g = parseInt(c1.slice(3,5),16), b = parseInt(c1.slice(5,7),16);
+    const r = parseInt(c1.slice(1,3), 16);
+    const g = parseInt(c1.slice(3,5), 16);
+    const b = parseInt(c1.slice(5,7), 16);
     const root = document.documentElement;
     root.style.setProperty('--gold',  c1);
     root.style.setProperty('--gold2', c2);
-    root.style.setProperty('--gd', `rgba(${r},${g},${b},.1)`);
+    root.style.setProperty('--gd', `rgba(${r},${g},${b},.10)`);
     root.style.setProperty('--gb', `rgba(${r},${g},${b},.18)`);
     root.style.setProperty('--gt', `rgba(${r},${g},${b},.85)`);
   });
